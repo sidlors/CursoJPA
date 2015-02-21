@@ -1,16 +1,11 @@
 # jpa-guide
-guia de JPA 
 
 
 1)  Nearly all interaction with the JPA is done through the EntityManager. To obtain an instance of an EntityManager, we have to create an instance of the EntityManagerFactory. Normally we only need one EntityManagerFactory for one “persistence unit” per application. A persistence unit is a set of JPA classes that is managed together with the database configuration in a file called persistence.xml:
 
-<?xml version="1.0" encoding="UTF-8" ?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
- http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
-
-    <persistence-unit name="PersistenceUnit" transaction-type="RESOURCE_LOCAL">
+{{{
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
+<persistence-unit name="PersistenceUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <properties>
             <property name="connection.driver_class" value="org.h2.Driver"/>
@@ -18,11 +13,11 @@ guia de JPA
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.show_sql" value="true"/>
-			<property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
         </properties>
     </persistence-unit>
-</persistence>
-
+    </persistence>
+}}}
 
 This file is created in the src/main/resource/META-INF folder of the maven project. As you can see, we define one persistence-unit with the name PersistenceUnit that has the transaction-type RESOURCE_LOCAL. The transaction-type determines how transactions are handled in the application.
 
@@ -49,7 +44,9 @@ After having obtained an instance of the EntityManagerFactory and from it an ins
 
 The EntityManager represents a persistence unit and therefore we will need in RESOURCE_LOCAL applications only one instance of the EntityManager. A persistence unit is a cache for the entities that represent parts of the state stored in the database as well as a connection to the database. In order to store data in the database we therefore have to pass it to the EntityManager and therewith to the underlying cache. In case you want to create a new row in the database, this is done by invoking the method persist() on the EntityManager as demonstrated in the following code:
 
-private void persistPerson(EntityManager entityManager) {
+{{{
+ private void persistPerson(EntityManager entityManager) {
+
 	EntityTransaction transaction = entityManager.getTransaction();
 	try {
 		transaction.begin();
@@ -63,7 +60,8 @@ private void persistPerson(EntityManager entityManager) {
 			transaction.rollback();
 		}
 	}
-}
+ }
+}}}
 
 But before we can call persist() we have to open a new transaction by calling transaction.begin() on a new transaction object we have retrieved from the EntityManager. If we would omit this call, Hibernate would throw a IllegalStateException that tells us that we have forgotten to run the persist() within a transaction:
 
@@ -73,10 +71,11 @@ After calling persist() we have to commit the transaction, i.e. send the data to
 4.2) Tables
 
 The class Person is mapped to the database table T_PERSON by adding the annotation @Entity:
-
+{{{
 @Entity
 @Table(name = "T_PERSON")
 public class Person {
+
 	private Long id;
 	private String firstName;
 	private String lastName;
@@ -109,7 +108,7 @@ public class Person {
 		this.lastName = lastName;
 	}
 }
-
+}}}
  	
  	
 On the other hand you can specify more information for each column by using the other attributes that the @Column annotation provides:
@@ -123,38 +122,31 @@ The two annotations @Id and @GeneratedValue tell JPA that this value is the prim
 
 In the example code above we have added the JPA annotations to the getter methods for each field that should be mapped to a database column. Another way would be to annotate the field directly instead of the getter method:
 
-
+{{{
 @Entity
-
 @Table(name = "T_PERSON")
-
 public class Person {
-
     @Id
     @GeneratedValue
     private Long id;
-
     @Column(name = "FIRST_NAME")
     private String firstName;
-
     @Column(name = "LAST_NAME")
     private String lastName;
     ...
+ }}}
     
 The two ways are more or less equal, the only difference they have plays a role when you want to override annotations for fields in subclasses. As we will see in the further course of this tutorial, it is possible to extend an existing entity in order to inherit its fields. When we place the JPA annotations at the field level, we cannot override them as we can by overriding the corresponding getter method.
 
 One also has to pay attention to keep the way to annotate entities the same for one entity hierarchy. You can mix annotation of fields and methods within one JPA project, but within one entity and all its subclasses is must be consistent. If you need to change the way of annotatio within a subclass hierarchy, you can use the JPA annotation Access to specify that a certain subclass uses a different way to annotate fields and methods:
 
-
+{{{
 @Entity
-
 @Table(name = "T_GEEK")
-
 @Access(AccessType.PROPERTY)
-
 public class Geek extends Person {
 
 ...
-
+}}}
 
 The code snippet above tells JPA that this class is going to use annotations on the method level, whereas the superclass may have used annotations on field level.

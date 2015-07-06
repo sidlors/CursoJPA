@@ -143,10 +143,10 @@ Por último, pero no menos importante ofrecemos tres opciones que vienen muy út
 La segunda opción es **hibernate.show_sql** que se le dice a Hibernate para que imprima cada declaración SQL que se emite a la base de datos en la línea de comandos. Con esta opción habilitada podemos rastrear fácilmente todas las declaraciones y echar un vistazo si todo funciona como se esperaba. Y finalmente le decimos a Hibernate que imprima de una manera agradable la salida SQL para una mejor legibilidad estableciendo la  propiedad hibernate.format_sql en true.
 
 
- ###3. Regresando al la tecla...
+ ###3 Transacciones
  
 Después de haber obtenido una instancia de la **EntityManagerFactory** y de ella una instancia de EntityManager podemos utilizarlos en el método **persistPerson** para salvar algunos datos en la base de datos. Ten en cuenta que después de lo que hemos hecho nuestro trabajo tenemos que cerrar tanto el EntityManager así como la EntityManagerFactory.
-   + 4.1) Transacciones
+
 
 El EntityManager representa una unidad de persistencia y por lo tanto vamos a necesitar en la aplicacion **RESOURCE_LOCAL** sólo una instancia del EntityManager. Una unidad de persistencia es una memoria caché para las entidades que representan partes del estado almacenados en la base de datos, así como una conexión a la base de datos. Con el fin de almacenar datos en la base de datos, por lo tanto tenemos que pasarlo al EntityManager y con ello a la caché subyacente. En caso de que quiera crear una nueva fila en la base de datos, esto se hace invocando el método persist () en el EntityManager como se demuestra en el siguiente código:
 
@@ -170,11 +170,11 @@ El EntityManager representa una unidad de persistencia y por lo tanto vamos a ne
  ```
  
  
- Pero antes de que podamos llamar a **persist()** tenemos que abrir una nueva transacción llamando **transaction.begin()** en un nuevo objeto de transacciones que hemos recuperado del EntityManager. Si omitimos este llamado, Hibernate podría lanzar una **IllegalStateException** que nos dice que nos hemos olvidado de ejecutar el persisten() dentro de una transacción:
+Pero antes de que podamos llamar a **persist()** tenemos que abrir una nueva transacción llamando **transaction.begin()** en un nuevo objeto de transacciones que hemos recuperado del EntityManager. Si omitimos este llamado, Hibernate podría lanzar una **IllegalStateException** que nos dice que nos hemos olvidado de ejecutar el persisten() dentro de una transacción:
 
 Después de llamar a persistir () tenemos que confirmar (*commit*) la transacción, es decir, enviar los datos a la base de datos y almacenarla allí. En caso de que sea lanzada una excepción dentro del bloque try, tenemos que deshacer (*Rollback*) la transacción hemos comenzado antes. Pero como sólo podemos deshacer transacciones activas, tenemos que comprobar antes si la transacción actual ya está en marcha, ya que puede ocurrir que la excepción se produce dentro de la convocatoria **transaction.begin ()**.
 
-###5. Tables
+###4. Tables
 
 La clase Person es mapeada para a la tabla T_PERSON agregando la anotacion @Entity:
 
@@ -285,7 +285,7 @@ sql> select * from T_PERSON;
 El resultado del query anterior muestra que la tabla T_PERSON realmente contiene un registro con id 1 y con valores  en first name y lastname
 
 
-###4. Herencia
+###5. Herencia
 
 Después de haber llevado a cabo la configuracio0n en este caso de uso fácil, nos vamos ahora a considerar casos de uso más complejos. 
 
@@ -489,7 +489,7 @@ Running the above code leads to the following output:
 3 Thomas Micro C#
 4 Christian Cup Java
 
-##5. Relationships
+##6. Relationships
 
 Until now we have not modelled any relations between different entities except the extends relation between a subclass and its superclass. JPA offers different relations between entities/tables that can be modelled:
 
@@ -500,7 +500,7 @@ Embedded: In this relationship the other entity is stored in the same table as t
 ElementCollection: This relationship is similar to the OneToMany relation but in contrast to it the referenced entity is anEmbedded entity. This allows to define OneToMany relationships to simple objects that are stored in contrast to the "normal"Embedded relationship in another table.
 
 
-###5.1. OneToOne
+###6.1. OneToOne
 
 Let's start with an OneToOne relationship by adding a new entity IdCard:
 
@@ -740,7 +740,7 @@ from
 
 Please note that without the keyword left (i.e. only join fetch) Hibernate will create an inner join and only load persons that actually have at least one phone number.
 
-###5.3. ManyToMany
+###6.3. ManyToMany
 
 Another interesting relationship is the @ManyToMany one. As one geek can join many projects and one project consists of many geeks, we model the relationship between Project and Geek as @ManyToMany relationship:
 
@@ -860,7 +860,7 @@ transaction.commit();
 
 In this example we only want to add geeks to our "Java Project" whose favourite programming language is of course Java. Hence we add a where clause to our select query that restricts the result set to geeks with a specific value for the column FAV_PROG_LANG. As this column is mapped to the field favouriteProgrammingLanguage, we can reference it directly by its Java field name in the JPQL statement. The dynamic value for the query is passed into the statement by calling setParameter() for the corresponding variable in the JPQL query (here: fpl).
 
-###5.4. Embedded / ElementCollection
+###6.4. Embedded / ElementCollection
 
 It can happen that you want to structure your Java model more fine-grained than your database model. An example for such a use case is the Java class Period that models the time between a start and an end date. This construct can be reused in different entities as you do not want to copy the two class fields startDate and endDate to each entity that has a period of time.
 
@@ -979,7 +979,7 @@ public void setBillingPeriods(List<Period> billingPeriods) {
 
 As Period is an @Embeddable entity we cannot just use a normal @OneToMany relation.
 
-###6. Data Types and Converters
+##7. Data Types and Converters
 
 When dealing with legacy databases it can happen that you the standard mapping provided by JPA may not be enough. The following table lists how the Java types are mapped to the different database types:
 
@@ -1104,7 +1104,7 @@ sql> select * from t_id_card;
 |1  | 4711      | 2015-02-04 16:43:30.233 | -1|
 
 
-###7. Criteria API
+##8. Criteria API
 
 Until now we have used the Java Persistence Query Language (JPQL) to issue queries to the database. An alternative to the JPQL is the "Criteria API". This API provides a pure Java method based API to construct a query.
 
@@ -1148,7 +1148,7 @@ In general CriteriaQuery defines the following clauses and options:
 
 The above methods allow you to assemble queries completely dynamically based on any filter restrictions the user has provided.
 
-###8. Sequences
+##9. Sequences
 
 Until now we have used in this tutorial the annotation @GeneratedValue without any specific information on how this unique value should be assigned to each entity. Without any further information the JPA provider chooses on its on how to generate this unique value. But we can also decide the way how to generate unique ids for entities on our own. JPA provides therefore these three different approaches:
 

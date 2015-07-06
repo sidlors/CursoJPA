@@ -1,5 +1,8 @@
 # GUIA JPA
 
+
+##0.Presentacion
+
 El API de Persistence Java (JPA) es una especificación independiente de proveedor  para el mapeo de objetos Java a las tablas de bases de datos relacionales. Implementaciones de esta especificación permite a los desarrolladores de aplicaciones abstraer del producto de base de datos específica con la que están trabajando y les permiten implementar operaciones CRUD (crear, leer, actualizar y eliminar) las operaciones de tal manera que el mismo código funciona en diferentes productos de base de datos. Estos marcos no sólo manejan el código que interactúa con la base de datos (el código JDBC), sino también  mapear los tipos de estructuras de datos utilizadas por la aplicación.
 
 Los 3 componentes de JPA son:
@@ -18,7 +21,7 @@ En este tutorial vamos a través de diferentes aspectos del framework y desarrol
 * H2 como base relacional version 1.3.176
 
 
-###Project setup
+###0.1.Configuracion del Proyecto
 
 Como primer paso vamos a crear un proyecto simple maven desde linea de comandos:
 
@@ -69,7 +72,7 @@ The libraries our implementation depends on are added to the dependencies sectio
 
 Para tener una mejor visión de conjunto de las versiones separadas, definimos cada versión como una propiedad Maven y referencia más adelante en la sección de dependencias.
 
-3.1. EntityManager and Persistence Unit
+###0.2.EntityManager and Persistence Unit
 
 Ahora empezamos a implementar nuestra primera funcionalidad JPA. Vamos a empezar con una clase simple que proporciona un método run() que se invoca en el método principal de la aplicación:
 
@@ -105,7 +108,7 @@ public class Main {
 
 ```
 
-###1. EntityManager
+##1. EntityManager
 
 Casi toda la interacción con JPA se hace a través del EntityManager. Para obtener una instancia de un EntityManager, tenemos que crear una instancia de la EntityManagerFactory. Normalmente sólo necesitamos una EntityManagerFactory por  "unidad de persistencia" por aplicación. Una unidad de persistencia es un conjunto de clases de la JPA que se gestiona junto con la configuración de base de datos en un archivo llamado persistence.xml
 
@@ -131,7 +134,7 @@ Este archivo se crea en la carpeta src/main/resource/META-IN del proyecto Maven.
 En nuestra aplicación de ejemplo no tenemos contenedor JEE por lo que tenemos que manejar las transacciones nosotros mismos, de ahí que se especifique  **RESOURCE_LOCAL**. Cuando se utiliza un contenedor JEE entonces el contenedor es responsable de la creación de la EntityManagerFactory y sólo le proporciona que EntityManager. El contenedor también se encarga del comienzo y final de cada transacción. En ese caso se proporcionará el valor **JTA**.
   
 
-###2. En persistence.xml 
+##2. En persistence.xml 
 
 Se informa al proveedor de JPA sobre la base de datos que queremos utilizar. Esto se hace mediante la especificación del controlador JDBC que Hibernate debe utilizar. Como queremos usar la base de datos [H2](www.h2database.com), la propiedad **connection.driver_class** se establece en el valor org.h2.Driver.
  
@@ -143,7 +146,7 @@ Por último, pero no menos importante ofrecemos tres opciones que vienen muy út
 La segunda opción es **hibernate.show_sql** que se le dice a Hibernate para que imprima cada declaración SQL que se emite a la base de datos en la línea de comandos. Con esta opción habilitada podemos rastrear fácilmente todas las declaraciones y echar un vistazo si todo funciona como se esperaba. Y finalmente le decimos a Hibernate que imprima de una manera agradable la salida SQL para una mejor legibilidad estableciendo la  propiedad hibernate.format_sql en true.
 
 
- ###3 Transacciones
+ ##3 Transacciones
  
 Después de haber obtenido una instancia de la **EntityManagerFactory** y de ella una instancia de EntityManager podemos utilizarlos en el método **persistPerson** para salvar algunos datos en la base de datos. Ten en cuenta que después de lo que hemos hecho nuestro trabajo tenemos que cerrar tanto el EntityManager así como la EntityManagerFactory.
 
@@ -174,7 +177,7 @@ Pero antes de que podamos llamar a **persist()** tenemos que abrir una nueva tra
 
 Después de llamar a persistir () tenemos que confirmar (*commit*) la transacción, es decir, enviar los datos a la base de datos y almacenarla allí. En caso de que sea lanzada una excepción dentro del bloque try, tenemos que deshacer (*Rollback*) la transacción hemos comenzado antes. Pero como sólo podemos deshacer transacciones activas, tenemos que comprobar antes si la transacción actual ya está en marcha, ya que puede ocurrir que la excepción se produce dentro de la convocatoria **transaction.begin ()**.
 
-###4. Tables
+##4. Tables
 
 La clase Person es mapeada para a la tabla T_PERSON agregando la anotacion @Entity:
 
@@ -285,7 +288,7 @@ sql> select * from T_PERSON;
 El resultado del query anterior muestra que la tabla T_PERSON realmente contiene un registro con id 1 y con valores  en first name y lastname
 
 
-###5. Herencia
+##5. Herencia
 
 Después de haber llevado a cabo la configuracio0n en este caso de uso fácil, nos vamos ahora a considerar casos de uso más complejos. 
 
@@ -627,7 +630,7 @@ Hibernate:
 
 We can see that we now have to load each ID card separately. Therefore this feature has to be used wisely, as it can cause hundreds of additional select queries in case you are loading a huge number of persons and you know that you are loading each time also the ID card.
 
-###5.2. OneToMany
+###6.2. OneToMany
 
 Another important relationship is the @OneToMany relationship. In our example every Person should have one ore more phones:
 
@@ -1148,7 +1151,7 @@ In general CriteriaQuery defines the following clauses and options:
 
 The above methods allow you to assemble queries completely dynamically based on any filter restrictions the user has provided.
 
-##9. Sequences
+##8. Sequences
 
 Until now we have used in this tutorial the annotation @GeneratedValue without any specific information on how this unique value should be assigned to each entity. Without any further information the JPA provider chooses on its on how to generate this unique value. But we can also decide the way how to generate unique ids for entities on our own. JPA provides therefore these three different approaches:
 

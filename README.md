@@ -1,11 +1,10 @@
 # jpa-guide
 
 
-<p>
-1)  Nearly all interaction with the JPA is done through the EntityManager. To obtain an instance of an EntityManager, we have to create an instance of the EntityManagerFactory. Normally we only need one EntityManagerFactory for one “persistence unit” per application. A persistence unit is a set of JPA classes that is managed together with the database configuration in a file called persistence.xml:</p>
 
-<p>
-<code>
+1)  Nearly all interaction with the JPA is done through the EntityManager. To obtain an instance of an EntityManager, we have to create an instance of the EntityManagerFactory. Normally we only need one EntityManagerFactory for one “persistence unit” per application. A persistence unit is a set of JPA classes that is managed together with the database configuration in a file called persistence.xml:
+
+```xml
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
 <persistence-unit name="PersistenceUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
@@ -19,8 +18,7 @@
         </properties>
     </persistence-unit>
     </persistence>
-</code>
-</p>
+```
 
 <p>This file is created in the src/main/resource/META-INF folder of the maven project. As you can see, we define one persistence-unit with the name PersistenceUnit that has the transaction-type RESOURCE_LOCAL. The transaction-type determines how transactions are handled in the application.</p>
 
@@ -46,7 +44,7 @@ The second option is hibernate.show_sql that tells Hibernate to print every SQL 
 
 <p>The EntityManager represents a persistence unit and therefore we will need in RESOURCE_LOCAL applications only one instance of the EntityManager. A persistence unit is a cache for the entities that represent parts of the state stored in the database as well as a connection to the database. In order to store data in the database we therefore have to pass it to the EntityManager and therewith to the underlying cache. In case you want to create a new row in the database, this is done by invoking the method persist() on the EntityManager as demonstrated in the following code:</p>
 
-<code>
+```java
  private void persistPerson(EntityManager entityManager) {
  	EntityTransaction transaction = entityManager.getTransaction();
 	try {
@@ -61,7 +59,9 @@ The second option is hibernate.show_sql that tells Hibernate to print every SQL 
 			transaction.rollback();
 		}
 	}
- }</code>
+ }
+ 
+ ```
 
 <p>But before we can call persist() we have to open a new transaction by calling transaction.begin() on a new transaction object we have retrieved from the EntityManager. If we would omit this call, Hibernate would throw a IllegalStateException that tells us that we have forgotten to run the persist() within a transaction:</p>
 
@@ -72,7 +72,7 @@ The second option is hibernate.show_sql that tells Hibernate to print every SQL 
 
 <p>The class Person is mapped to the database table T_PERSON by adding the annotation @Entity:</p>
 
-<code>
+```java
 
 @Entity
 @Table(name = "T_PERSON")
@@ -103,13 +103,14 @@ public class Person {
 		this.lastName = lastName;
 	}
 	}
-	
-</code>
+```
  	
  	
 <p>On the other hand you can specify more information for each column by using the other attributes that the @Column annotation provides:</p>
 
-<code>@Column(name = "FIRST_NAME", length = 100, nullable = false, unique = false) </code>
+```java
+@Column(name = "FIRST_NAME", length = 100, nullable = false, unique = false)
+```
 
 <p>Trying to insert null as first name into this table would provoke a constraint violation on the database and cause the current transaction to roll back.</p>
 
@@ -118,7 +119,7 @@ public class Person {
 
 <p>In the example code above we have added the JPA annotations to the getter methods for each field that should be mapped to a database column. Another way would be to annotate the field directly instead of the getter method:</p>
 
-<code>
+```java
 @Entity
 @Table(name = "T_PERSON")
 public class Person {
@@ -130,7 +131,7 @@ public class Person {
     @Column(name = "LAST_NAME")
     private String lastName;
     ...
-</code>
+```
     
 <p>The two ways are more or less equal, the only difference they have plays a role when you want to override annotations for fields in subclasses. As we will see in the further course of this tutorial, it is possible to extend an existing entity in order to inherit its fields. When we place the JPA annotations at the field level, we cannot override them as we can by overriding the corresponding getter method.
 
@@ -139,14 +140,14 @@ public class Person {
 One also has to pay attention to keep the way to annotate entities the same for one entity hierarchy. You can mix annotation of fields and methods within one JPA project, but within one entity and all its subclasses is must be consistent. If you need to change the way of annotatio within a subclass hierarchy, you can use the JPA annotation Access to specify that a certain subclass uses a different way to annotate fields and methods:</p>
 
 
-<code>
+```java
 @Entity
 @Table(name = "T_GEEK")
 @Access(AccessType.PROPERTY)
 
 public class Geek extends Person {
 ...
-</code>
+```
 
 <p>
 The code snippet above tells JPA that this class is going to use annotations on the method level, whereas the superclass may have used annotations on field level.</p>
@@ -169,7 +170,7 @@ We can check that everything is correct by using the Shell that ships with H2. I
 
 >java -cp h2-1.3.176.jar org.h2.tools.Shell -url jdbc:h2:~/jpa
 ...
-<code>
+```sql
 
 sql> select * from T_PERSON;
 
@@ -177,7 +178,7 @@ ID | FIRST_NAME | LAST_NAME
 1  | Homer      | Simpson
 
 (4 rows, 4 ms)
-</code>
+```
 
 <p>The query result above shows us that the table T_PERSON actually contains one row with id 1 and values for first name and last name.<p/>
 
@@ -186,7 +187,7 @@ ID | FIRST_NAME | LAST_NAME
 
 <p>After having accomplished the setup and this easy use case, we turn towards some more complex use cases. Let’s assume we want to store next to persons also information about geeks and about their favourite programming language. As geeks are also persons, we would model this in the Java world as subclass relation to Person:</p>
 
-<code>
+```java
 
 @Entity
 @Table(name = "T_GEEK")
@@ -211,7 +212,7 @@ public class Geek extends Person {
 	}
 	...
 	}
-<code>
+```
 
 <p>Adding the annotations @Entity and @Table to the class lets Hibernate create the new table T_GEEK:</p>
 

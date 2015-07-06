@@ -1,8 +1,33 @@
 # jpa-guide
 
+El API de Persistence Java (JPA) es una especificación independiente de proveedor  para el mapeo de objetos Java a las tablas de bases de datos relacionales. Implementaciones de esta especificación permite a los desarrolladores de aplicaciones abstraer del producto de base de datos específica con la que están trabajando y les permiten implementar operaciones CRUD (crear, leer, actualizar y eliminar) las operaciones de tal manera que el mismo código funciona en diferentes productos de base de datos. Estos marcos no sólo manejan el código que interactúa con la base de datos (el código JDBC), sino también  mapear los tipos de estructuras de datos utilizadas por la aplicación.
+
+Los 3 componentes de JPA son:
+
+*  Entidades(Entities): En las versiones actuales las entidades JPA son POJO's. Las versiones anteriores de JPA se obligados a extender como subclase  de las clases proporcionadas por JPA, pero este enfoque hacía más difíciles realizar pruebas debido a dichas dependecies, las nuevas versiones de JPA no requieren que las entidades sean subclase de alguna clase de Framework.
+
+* Metadatos objeto-relacional: El desarrollador de la aplicación debe proporcionar la asignación entre las clases Java y sus atributos a las tablas y columnas de la base de datos. Esto se puede hacer cualquiera de los archivos de configuración mínimas dedicados o en la versión más reciente también por anotaciones.
+
+* Java Persistence Query Language (JPQL): Como JPA tiene como objetivo abstracto a partir del producto de base de datos específica, el framework también proporciona un langauge consultas dedicado que se puede utilizar en lugar de SQL. Esta traducción de JPQL a SQL permite que las implementaciones del framework de soporte a diferentes dialectos de bases de datos y permite que el desarrollador ejecutar consultas en una base de datos de forma independiente asu vendor.
+
+En este tutorial vamos a través de diferentes aspectos del framework y desarrollaremos una sencilla aplicación Java SE que almacena y recupera datos desde una base de datos relacional. Usaremos las siguientes bibliotecas/entornos:
+
+* maven >= 3.0 como tool de Build
+* JPA 2.0 contenida en en Java Enterprise Edition (JEE) 6.0
+* Framework Hibernate como una implementacion de JPA (4.3.8.Final)
+* H2 como base relacional version 1.3.176
 
 
-  1. Casi toda la interacción con JPA se hace a través del EntityManager. Para obtener una instancia de un EntityManager, tenemos que crear una instancia de la EntityManagerFactory. Normalmente sólo necesitamos una EntityManagerFactory por  "unidad de persistencia" por aplicación. Una unidad de persistencia es un conjunto de clases de la JPA que se gestiona junto con la configuración de base de datos en un archivo llamado persistence.xml
+### 0)Project setup
+
+Como primer paso vamos a crear un proyecto simple maven desde linea de comandos:
+
+
+>mvn archetype:create -DgroupId=com.javacodegeeks.ultimate -DartifactId=jpa
+
+
+
+###1. Casi toda la interacción con JPA se hace a través del EntityManager. Para obtener una instancia de un EntityManager, tenemos que crear una instancia de la EntityManagerFactory. Normalmente sólo necesitamos una EntityManagerFactory por  "unidad de persistencia" por aplicación. Una unidad de persistencia es un conjunto de clases de la JPA que se gestiona junto con la configuración de base de datos en un archivo llamado persistence.xml
 
 
 ```xml
@@ -26,9 +51,11 @@ Este archivo se crea en la carpeta src/main/resource/META-IN del proyecto Maven.
 En nuestra aplicación de ejemplo no tenemos contenedor JEE por lo que tenemos que manejar las transacciones nosotros mismos, de ahí que se especifique  **RESOURCE_LOCAL**. Cuando se utiliza un contenedor JEE entonces el contenedor es responsable de la creación de la EntityManagerFactory y sólo le proporciona que EntityManager. El contenedor también se encarga del comienzo y final de cada transacción. En ese caso se proporcionará el valor **JTA**.
   
 
-  2. En persistence.xml se informa al proveedor de JPA sobre la base de datos que queremos utilizar. Esto se hace mediante la especificación del controlador JDBC que Hibernate debe utilizar. Como queremos usar la base de datos [H2](www.h2database.com), la propiedad **connection.driver_class** se establece en el valor org.h2.Driver.
+###2. En persistence.xml 
+
+Se informa al proveedor de JPA sobre la base de datos que queremos utilizar. Esto se hace mediante la especificación del controlador JDBC que Hibernate debe utilizar. Como queremos usar la base de datos [H2](www.h2database.com), la propiedad **connection.driver_class** se establece en el valor org.h2.Driver.
  
-  3.  Tenemos que decirle a Hibernate el dialecto JDBC que debe utilizar. Como Hibernate proporciona una implementación de dialecto dedicado para H2, elegimos éste con la propiedad **hibernate.dialect**. Con este dialecto de Hibernate es capaz de crear las sentencias SQL apropiados para la base de datos de H2.
+  + Tenemos que decirle a Hibernate el dialecto JDBC que debe utilizar. Como Hibernate proporciona una implementación de dialecto dedicado para H2, elegimos éste con la propiedad **hibernate.dialect**. Con este dialecto de Hibernate es capaz de crear las sentencias SQL apropiados para la base de datos de H2.
 
 
 Por último, pero no menos importante ofrecemos tres opciones que vienen muy útil en el desarrollo de una nueva aplicación, pero que no sería utilizado en entornos de producción. El primero de ellos es la propiedad **hibernate.hbm2ddl.auto** que le dice a Hibernate como crear todas las tablas a partir de cero desde el inicio. Si ya existe la tabla, se eliminará. En nuestra aplicación de ejemplo esta es una buena característica que podemos confiar en el hecho de que la base de datos está vacía en la a principios y que todos los cambios que hemos hecho en el esquema desde nuestra último inicio de la aplicación se reflejan en el esquema.
@@ -36,7 +63,7 @@ Por último, pero no menos importante ofrecemos tres opciones que vienen muy út
 La segunda opción es **hibernate.show_sql** que se le dice a Hibernate para que imprima cada declaración SQL que se emite a la base de datos en la línea de comandos. Con esta opción habilitada podemos rastrear fácilmente todas las declaraciones y echar un vistazo si todo funciona como se esperaba. Y finalmente le decimos a Hibernate que imprima de una manera agradable la salida SQL para una mejor legibilidad estableciendo la  propiedad hibernate.format_sql en true.
 
 
- 4. REgresando al la tecla...
+ ###3. Regresando al la tecla...
  
 Después de haber obtenido una instancia de la **EntityManagerFactory** y de ella una instancia de EntityManager podemos utilizarlos en el método **persistPerson** para salvar algunos datos en la base de datos. Ten en cuenta que después de lo que hemos hecho nuestro trabajo tenemos que cerrar tanto el EntityManager así como la EntityManagerFactory.
    + 4.1) Transacciones
@@ -67,8 +94,7 @@ El EntityManager representa una unidad de persistencia y por lo tanto vamos a ne
 
 Después de llamar a persistir () tenemos que confirmar (*commit*) la transacción, es decir, enviar los datos a la base de datos y almacenarla allí. En caso de que sea lanzada una excepción dentro del bloque try, tenemos que deshacer (*Rollback*) la transacción hemos comenzado antes. Pero como sólo podemos deshacer transacciones activas, tenemos que comprobar antes si la transacción actual ya está en marcha, ya que puede ocurrir que la excepción se produce dentro de la convocatoria **transaction.begin ()**.
 
-
-   5. Tables
+###5. Tables
 
 La clase Person es mapeada para a la tabla T_PERSON agregando la anotacion @Entity:
 
@@ -182,7 +208,7 @@ ID | FIRST_NAME | LAST_NAME
 
 ```
 
-The query result above shows us that the table T_PERSON actually contains one row with id 1 and values for first name and last name.
+El resultado del query anterior muestra que la tabla T_PERSON realmente contiene un registro con id 1 y con valores  en first name y lastname
 
 
 ###4. Inheritance

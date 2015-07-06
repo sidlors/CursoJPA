@@ -978,3 +978,242 @@ public void setBillingPeriods(List<Period> billingPeriods) {
 ```
 
 As Period is an @Embeddable entity we cannot just use a normal @OneToMany relation.
+
+###6. Data Types and Converters
+
+When dealing with legacy databases it can happen that you the standard mapping provided by JPA may not be enough. The following table lists how the Java types are mapped to the different database types:
+
+|Java type |Database type |
+|---|---|
+|ring (char, char[])|VARCHAR (CHAR, VARCHAR2, CLOB, TEXT)|
+|Number (BigDecimal, BigInteger, Integer, Double, Long, Float, Short, Byte)|NUMERIC (NUMBER, INT, LONG, FLOAT, DOUBLE) |
+|Int, long, float, double, short, byte |NUMERIC (NUMBER, INT, LONG, FLOAT, DOUBLE) |
+|byte[] |VARBINARY (BINARY, BLOB)|
+|boolean (Boolean) |BOOLEAN (BIT, SMALLINT, INT, NUMBER) |
+|java.util.Date, java.sql.Date, java.sql.Time, java.sql.Timestamp, java.util.Calendar|TIMESTAMP (DATE, DATETIME) |
+|java.lang.Enum |NUMERIC (VARCHAR, CHAR)|
+|java.util.Serializable |VARBINARY (BINARY, BLOB)|
+
+An interesting point in this table is the mapping for enum types. To demonstrate the usage of enums in JPA let's add the enumProjectType to the entity:
+
+```java
+@Entity
+@Table(name = "T_PROJECT")
+public class Project {
+
+...
+    private ProjectType projectType;
+    public enum ProjectType {
+        FIXED, TIME_AND_MATERIAL
+    }
+
+    ...
+
+    @Enumerated(EnumType.ORDINAL)
+    public ProjectType getProjectType() {
+        return projectType;
+    }
+
+    public void setProjectType(ProjectType projectType) {
+        this.projectType = projectType;
+    }
+
+}
+```
+
+As we can see from the snippet above, the annotation @Enumerated allows us to map enums to database colums by specifying how to map the different values to the column. Choosing EnumType.ORDINAL means that each enum constant is mapped to a specific number in the database. When we set our "Java Project" to TIME_AND_MATERIAL we get the following output:
+
+```SQL
+sql> select * from t_project;
+```
+
+|ID | PROJECTTYPE | TITLE|
+|---|-------------|------|
+|1  | 1           | Java Project|
+
+(1 row, 2 ms)
+
+As an alternative we could also use the value EnumType.STRING. In this case the column is of type String and encodes the enum by calling its name() method:
+
+```sql
+sql> select * from t_project;
+```
+
+|ID | PROJECTTYPE       | TITLE|
+|----|---------|---|
+|1  | TIME_AND_MATERIAL | Java Project|
+
+(1 row, 2 ms)
+
+If both solutions do not satisfy your requirements, you can write your own converter. This is done by implementing the Java interfaceAttributeConverter and annotating the class with @Converter. The following class for example converts a boolean value into the two numeric values 1 and -1:
+
+```java
+@Converter
+public class BooleanConverter implements AttributeConverter<Boolean, Integer> {
+    @Override
+    public Integer convertToDatabaseColumn(Boolean aBoolean) {
+        if (Boolean.TRUE.equals(aBoolean)) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
+    @Override
+    public Boolean convertToEntityAttribute(Integer value) {
+        if (value == null) {
+            return Boolean.FALSE;
+        } else {
+            if (value == 1) {
+                return Boolean.TRUE;
+            } else {
+                return Boolean.FALSE;
+            }
+        }
+    }
+}
+```
+
+This converter can be applied to our IdCard when we want provide the information if an ID card is valid or not as a boolean value:
+
+```java
+private boolean valid;
+
+...
+
+@Column(name = "VALID")
+@Convert(converter = BooleanConverter.class)
+public boolean isValid() {
+    return valid;
+}
+
+public void setValid(boolean valid) {
+    this.valid = valid;
+}
+
+```
+
+Inserting an ID card with false for the attribute valid, results in the following output:
+
+```SQL
+sql> select * from t_id_card;
+```
+
+|ID | ID_NUMBER | ISSUE_DATE              | VALID|
+|----|------|-----|----|
+|1  | 4711      | 2015-02-04 16:43:30.233 | -1|
+
+
+###7. Criteria API
+
+Until now we have used the Java Persistence Query Language (JPQL) to issue queries to the database. An alternative to the JPQL is the "Criteria API". This API provides a pure Java method based API to construct a query.
+
+The following example queries the database for persons with firstName = 'Homer':
+
+```java
+CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+CriteriaQuery<Person> query = builder.createQuery(Person.class);
+Root<Person> personRoot = query.from(Person.class);
+query.where(builder.equal(personRoot.get("firstName"), "Homer"));
+List<Person> resultList = entityManager.createQuery(query).getResultList();
+```
+
+
+When starting to build a criteria query, we have to ask the EntityManager for a CriteriaBuilder object. This builder can then be used to create the actual Query object. The way to tell this query which table(s) to query is accomplished by invoking the methodfrom() and passing the entity that is mapped to the corresponding table. The Query object also offers a method to add the where clause:
+
+```java
+query.where(builder.equal(personRoot.get("firstName"), "Homer"));
+```
+
+The condition itself is then created using the CriteriaBuilder and its equal() method. More complex queries can then be assembled by using the appropriate logical conjunction:
+
+```java
+query.where(builder.and(
+    builder.equal(personRoot.get("firstName"), "Homer"),
+    builder.equal(personRoot.get("lastName"), "Simpson")));
+```
+
+In general CriteriaQuery defines the following clauses and options:
+
+  1. distinct(): Specifies whether the database should filter out duplicate values.
+  2. from(): Specifies the table/entity the query is submitted for.
+  3. select(): Specifies a select query.
+  4. multiselect(): Specifies a list of selections.
+  5. where(): Specifies the where clause of the query.
+  6. orderBy(): Specifies the ordering for the query.
+  7. groupBy(): Specifies groups that are formed over the result.
+  8. having(): Specifies restrictions for groups that are defined over the result.
+  9. subquery(): Specifies a subquery that can be used in other queries.
+
+
+The above methods allow you to assemble queries completely dynamically based on any filter restrictions the user has provided.
+
+###8. Sequences
+
+Until now we have used in this tutorial the annotation @GeneratedValue without any specific information on how this unique value should be assigned to each entity. Without any further information the JPA provider chooses on its on how to generate this unique value. But we can also decide the way how to generate unique ids for entities on our own. JPA provides therefore these three different approaches:
+
+TABLE: This strategy lets the JPA provider create a separate table that contains one row for each entity. This row contains next to the name of the entity also the current value for the id. Each time a new value is requsted, the row in the table is updated accordingly.
+
+* SEQUENCE: If the database provides sequences, this strategy requests the unique values from the provided database sequence. Not all database products do support sequences.
+
+* IDENTITY: If the database provides identity columns, this strategy uses this kind of column provided by the underlying database implementation. Not all database products support identity columns.
+In order to use the TABLE strategy, we also have to tell the JPA provider some details about the table it should use for the sequence management:
+
+```java
+@Id
+@GeneratedValue(strategy = GenerationType.TABLE, generator = "TABLE_GENERATOR")
+@TableGenerator(name = "TABLE_GENERATOR", table="T_SEQUENCES", pkColumnName = "SEQ_NAME", valueColumnName = "SEQ_VALUE", pkColumnValue = "PHONE")
+
+public Long getId() {
+    return id;
+}
+```
+
+The @TableGenerator annotation tell our JPA provider that the table should have the name T_SEQUENCES and the two columnsSEQ_NAME and SEQ_VALUE. The name for this sequence in the table should be PHONE:
+```SQL
+sql> select * from t_sequences;
+```
+
+|SEQ_NAME | SEQ_VALUE|
+|---|---|
+|PHONE    | 1|
+
+The SEQUENCE strategy can be used in a similar way:
+
+```java
+@Id
+@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "S_PROJECT")
+@SequenceGenerator(name = "S_PROJECT", sequenceName = "S_PROJECT", allocationSize = 100)
+
+public Long getId() {
+    return id;
+
+}
+```
+
+By using the annotation @SequenceGenerator we tell the JPA provider how the sequence should be named (S_PROJECT) and tell it an allocation size (here 100), i.e. how many values should be pre-allocated. The attributes generator and name connect the two annotations with each other.
+
+As this strategy uses a separate table, it can easily become a performance bottleneck when requesting a lot of sequence values. This is especially true if you use the same table for a huge number of tables and the underlying database only supports table locks or locks on table pages. In this case the database has to lock the complete table/page until the current transaction has been committed. Therefore JPA allows to define a pre-allocation size such that the database is not hit too often.
+
+In order to use the IDENTITY strategy, we just have to set the strategy attribute accordingly:
+
+```java
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+public Long getId() {
+    return id;
+}
+
+```
+If the database supports identity columns, the table is created appropriately:
+
+```SQL
+create table T_ID_CARD (
+     id bigint generated by default as identity,
+     ID_NUMBER varchar(255),
+     ISSUE_DATE timestamp,
+     VALID integer,
+     primary key (id)
+)
+```
+

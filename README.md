@@ -21,30 +21,26 @@
     </persistence>
 ```
 
-  2. Este archivo se crea en la carpeta src/main/resource/META-IN del proyecto Maven. Como se puede ver, definimos una unidad de persistencia  con el nombre *PersistenceUnit* que tiene el tipo de transacción RESOURCE_LOCAL. El tipo de transacción determina cómo las transacciones se manejan en la aplicación.
+Este archivo se crea en la carpeta src/main/resource/META-IN del proyecto Maven. Como se puede ver, definimos una unidad de persistencia  con el nombre *PersistenceUnit* que tiene el tipo de transacción RESOURCE_LOCAL. El tipo de transacción determina cómo las transacciones se manejan en la aplicación.
 
-En nuestra aplicación de ejemplo no tenemos contenedor  por lo que queremos manejar las transacciones por nosotros mismos, de ahí que se especifique  **RESOURCE_LOCAL**. Cuando se utiliza un contenedor JEE entonces el contenedor es responsable de la creación de la EntityManagerFactory y sólo le proporciona que EntityManager. El contenedor también se encarga del comienzo y final de cada transacción. En ese caso se proporcionará el valor **JTA**.
+En nuestra aplicación de ejemplo no tenemos contenedor JEE por lo que tenemos que manejar las transacciones nosotros mismos, de ahí que se especifique  **RESOURCE_LOCAL**. Cuando se utiliza un contenedor JEE entonces el contenedor es responsable de la creación de la EntityManagerFactory y sólo le proporciona que EntityManager. El contenedor también se encarga del comienzo y final de cada transacción. En ese caso se proporcionará el valor **JTA**.
   
 
-<p>2) In persistence.xml is to inform the JPA provider about the database we want to use. This is done by specifying the JDBC driver that Hibernate should use. As we want to use the H2 database (www.h2database.com), the property connection.driver_class is set to the value org.h2.Driver.</p>
-
-<p>3) We have to tell Hibernate is the JDBC dialect that it should use. As Hibernate provides a dedicated dialect implementation for H2, we choose this one with the property hibernate.dialect. With this dialect Hibernate is capable of creating the appropriate SQL statements for the H2 database.</p>
-
-<p>Last but not least we provide three options that come handy when developing a new application, but that would not be used in production environments. The first of them is the property hibernate.hbm2ddl.auto that tells Hibernate to create all tables from scratch at startup. If the table already exists, it will be deleted. In our sample application this is a good feature as we can rely on the fact that the database is empty at the beginnig and that all changes we have made to the schema since our last start of the application are reflected in the schema.
-<br/>
-The second option is hibernate.show_sql that tells Hibernate to print every SQL statement that it issues to the database on the command line. With this option enabled we can easily trace all statements and have a look if everything works as expected. And finally we tell Hibernate to pretty print the SQL for better readability by setting the property hibernate.format_sql to true.</p>
+  2. En persistence.xml se informa al proveedor de JPA sobre la base de datos que queremos utilizar. Esto se hace mediante la especificación del controlador JDBC que Hibernate debe utilizar. Como queremos usar la base de datos [H2](www.h2database.com), la propiedad **connection.driver_class** se establece en el valor org.h2.Driver.
+  3.  Tenemos que decirle a Hibernate el dialecto JDBC que debe utilizar. Como Hibernate proporciona una implementación de dialecto dedicado para H2, elegimos éste con la propiedad **hibernate.dialect**. Con este dialecto de Hibernate es capaz de crear las sentencias SQL apropiados para la base de datos de H2.
 
 
-<h3> 4) Returning to code...</h3> 
+Por último, pero no menos importante ofrecemos tres opciones que vienen muy útil en el desarrollo de una nueva aplicación, pero que no sería utilizado en entornos de producción. El primero de ellos es la propiedad **hibernate.hbm2ddl.auto** que le dice a Hibernate como crear todas las tablas a partir de cero desde el inicio. Si ya existe la tabla, se eliminará. En nuestra aplicación de ejemplo esta es una buena característica que podemos confiar en el hecho de que la base de datos está vacía en la a principios y que todos los cambios que hemos hecho en el esquema desde nuestra último inicio de la aplicación se reflejan en el esquema.
+
+La segunda opción es **hibernate.show_sql** que se le dice a Hibernate para que imprima cada declaración SQL que se emite a la base de datos en la línea de comandos. Con esta opción habilitada podemos rastrear fácilmente todas las declaraciones y echar un vistazo si todo funciona como se esperaba. Y finalmente le decimos a Hibernate que imprima de una manera agradable la salida SQL para una mejor legibilidad estableciendo la  propiedad hibernate.format_sql en true.
 
 
-<p>After having obtained an instance of the EntityManagerFactory and from it an instance of EntityManager we can use them in the method persistPerson to save some data in the database. Please note that after we have done our work we have to close both the EntityManager as well as the EntityManagerFactory.</p>
+ 4. Returning to code...
+ 
+Después de haber obtenido una instancia de la EntityManagerFactory y de ella una instancia de EntityManager podemos utilizarlos en el método **persistPerson** para salvar algunos datos en la base de datos. Ten en cuenta que después de lo que hemos hecho nuestro trabajo tenemos que cerrar tanto el EntityManager así como la EntityManagerFactory.
+   + 4.1) Transacciones
 
-
-
-<h3> 4.1) Transactions*</h3> 
-
-<p>The EntityManager represents a persistence unit and therefore we will need in RESOURCE_LOCAL applications only one instance of the EntityManager. A persistence unit is a cache for the entities that represent parts of the state stored in the database as well as a connection to the database. In order to store data in the database we therefore have to pass it to the EntityManager and therewith to the underlying cache. In case you want to create a new row in the database, this is done by invoking the method persist() on the EntityManager as demonstrated in the following code:</p>
+El EntityManager representa una unidad de persistencia y por lo tanto vamos a necesitar en la aplicacion **RESOURCE_LOCAL** sólo una instancia del EntityManager. Una unidad de persistencia es una memoria caché para las entidades que representan partes del estado almacenados en la base de datos, así como una conexión a la base de datos. Con el fin de almacenar datos en la base de datos, por lo tanto tenemos que pasarlo al EntityManager y con ello a la caché subyacente. En caso de que quiera crear una nueva fila en la base de datos, esto se hace invocando el método persist () en el EntityManager como se demuestra en el siguiente código:
 
 ```java
  private void persistPerson(EntityManager entityManager) {
@@ -64,10 +60,13 @@ The second option is hibernate.show_sql that tells Hibernate to print every SQL 
  }
  
  ```
+ 
+ 
+ Pero antes de que podamos llamar a **persist()** tenemos que abrir una nueva transacción llamando **transaction.begin()** en un nuevo objeto de transacciones que hemos recuperado del EntityManager. Si omitimos este llamado, Hibernate podría lanzar una **IllegalStateException** que nos dice que nos hemos olvidado de ejecutar el persisten() dentro de una transacción:
 
-<p>But before we can call persist() we have to open a new transaction by calling transaction.begin() on a new transaction object we have retrieved from the EntityManager. If we would omit this call, Hibernate would throw a IllegalStateException that tells us that we have forgotten to run the persist() within a transaction:</p>
+Después de llamar a persistir () tenemos que confirmar (*commit*) la transacción, es decir, enviar los datos a la base de datos y almacenarla allí. En caso de que sea lanzada una excepción dentro del bloque try, tenemos que deshacer (*Rollback*) la transacción hemos comenzado antes. Pero como sólo podemos deshacer transacciones activas, tenemos que comprobar antes si la transacción actual ya está en marcha, ya que puede ocurrir que la excepción se produce dentro de la convocatoria transaction.begin ().
 
-<p>After calling persist() we have to commit the transaction, i.e. send the data to the database and store it there. In case an exception is thrown within the try block, we have to rollback the transaction we have begun before. But as we can only rollback active transactions, we have to check before if the current transaction is already running, as it may happen that the exception is thrown within the transaction.begin() call.</p>
+After calling persist() we have to commit the transaction, i.e. send the data to the database and store it there. In case an exception is thrown within the try block, we have to rollback the transaction we have begun before. But as we can only rollback active transactions, we have to check before if the current transaction is already running, as it may happen that the exception is thrown within the transaction.begin() call.
 
 
 <h3> 4.2) Tables</h3>

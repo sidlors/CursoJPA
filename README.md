@@ -2,7 +2,8 @@
 
 
 
-1)  Nearly all interaction with the JPA is done through the EntityManager. To obtain an instance of an EntityManager, we have to create an instance of the EntityManagerFactory. Normally we only need one EntityManagerFactory for one “persistence unit” per application. A persistence unit is a set of JPA classes that is managed together with the database configuration in a file called persistence.xml:
+  1. Casi toda la interacción con JPA se hace a través del EntityManager. Para obtener una instancia de un EntityManager, tenemos que crear una instancia de la EntityManagerFactory. Normalmente sólo necesitamos una EntityManagerFactory por  "unidad de persistencia" por aplicación. Una unidad de persistencia es un conjunto de clases de la JPA que se gestiona junto con la configuración de base de datos en un archivo llamado persistence.xml
+
 
 ```xml
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
@@ -20,9 +21,10 @@
     </persistence>
 ```
 
-<p>This file is created in the src/main/resource/META-INF folder of the maven project. As you can see, we define one persistence-unit with the name PersistenceUnit that has the transaction-type RESOURCE_LOCAL. The transaction-type determines how transactions are handled in the application.</p>
+  2. Este archivo se crea en la carpeta src/main/resource/META-IN del proyecto Maven. Como se puede ver, definimos una unidad de persistencia  con el nombre *PersistenceUnit* que tiene el tipo de transacción RESOURCE_LOCAL. El tipo de transacción determina cómo las transacciones se manejan en la aplicación.
 
-<p>In our sample application we want to handle them on our own, hence we specify here RESOURCE_LOCAL. When you use a JEE container then the container is responsible for setting up the EntityManagerFactory and only provides you he EntityManager. The container then also handles the begin and end of each transaction. In this case you would provide the value JTA.</p>
+En nuestra aplicación de ejemplo no tenemos contenedor  por lo que queremos manejar las transacciones por nosotros mismos, de ahí que se especifique  **RESOURCE_LOCAL**. Cuando se utiliza un contenedor JEE entonces el contenedor es responsable de la creación de la EntityManagerFactory y sólo le proporciona que EntityManager. El contenedor también se encarga del comienzo y final de cada transacción. En ese caso se proporcionará el valor **JTA**.
+  
 
 <p>2) In persistence.xml is to inform the JPA provider about the database we want to use. This is done by specifying the JDBC driver that Hibernate should use. As we want to use the H2 database (www.h2database.com), the property connection.driver_class is set to the value org.h2.Driver.</p>
 

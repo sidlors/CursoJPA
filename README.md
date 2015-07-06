@@ -169,7 +169,9 @@ We can check that everything is correct by using the Shell that ships with H2. I
 
 
 >java -cp h2-1.3.176.jar org.h2.tools.Shell -url jdbc:h2:~/jpa
-...
+
+
+
 ```sql
 
 sql> select * from T_PERSON;
@@ -178,17 +180,17 @@ ID | FIRST_NAME | LAST_NAME
 1  | Homer      | Simpson
 
 (4 rows, 4 ms)
+
 ```
 
-<p>The query result above shows us that the table T_PERSON actually contains one row with id 1 and values for first name and last name.<p/>
+The query result above shows us that the table T_PERSON actually contains one row with id 1 and values for first name and last name.
 
 
-<h3>4. Inheritance</h3>
+###4. Inheritance
 
-<p>After having accomplished the setup and this easy use case, we turn towards some more complex use cases. Let’s assume we want to store next to persons also information about geeks and about their favourite programming language. As geeks are also persons, we would model this in the Java world as subclass relation to Person:</p>
+After having accomplished the setup and this easy use case, we turn towards some more complex use cases. Let’s assume we want to store next to persons also information about geeks and about their favourite programming language. As geeks are also persons, we would model this in the Java world as subclass relation to Person:
 
 ```java
-
 @Entity
 @Table(name = "T_GEEK")
 public class Geek extends Person {

@@ -272,15 +272,15 @@ Podemos comprobar que todo es correcto con el Shell que se incluye con H2. Para 
 >java -cp h2-1.3.176.jar org.h2.tools.Shell -url jdbc:h2:~/jpa
 
 ```sql
-
 sql> select * from T_PERSON;
+```
 
-ID | FIRST_NAME | LAST_NAME
-1  | Homer      | Simpson
+|ID | FIRST_NAME | LAST_NAME|
+|---|---|---|
+|1  | Homer      | Simpson|
 
 (4 rows, 4 ms)
 
-```
 
 El resultado del query anterior muestra que la tabla T_PERSON realmente contiene un registro con id 1 y con valores  en first name y lastname
 
@@ -351,7 +351,7 @@ private void persistGeek(EntityManager entityManager) {
 
 Después de haber ejecutado este método, el la tabla T_PERSON contiene los siguientes filas (junto con la persona que ya hemos insertado):
 
-```
+```SQL
 sql> select * from t_person;
 ```
 
@@ -374,18 +374,16 @@ DiscriminatorColumn (Name = "PERSON_TYPE", discriminatorType = DiscriminatorType
 
 Esto produce para el siguiente resultado:
 
-
->sql> select * from t_person;
-
 ```SQL
+>sql> select * from t_person;
+```
+
 |PERSON_TYPE | ID | FIRST_NAME | LAST_NAME | FAV_PROG_LANG|
 |---|---|---|---|---|
 |-1907849355 | 1  | Homer      | Simpson   | null|
 |2215460     | 2  | Gavin      | Coffee    | Java|
 |2215460     | 3  | Thomas     | Micro     | C#|
 |2215460     | 4  | Christian  | Cup       | Java|
-
-```
 
 No en todas las situaciones que desea tener una tabla para todos los tipos diferentes que desea almacenar en su base de datos. Este es especialmente el caso cuando los diferentes tipos no tienen casi todas las columnas en común. Por lo tanto JPA permite especificar cómo diseñar las diferentes columnas. Estas tres opciones disponibles:
 
@@ -409,7 +407,7 @@ Después de haber agregado la persona y los geeks que obtenemos el siguiente res
 
 ```SQL
 sql> select * from t_person;
-
+```
 
 |ID | FIRST_NAME | LAST_NAME|
 |---|---|---|
@@ -419,11 +417,11 @@ sql> select * from t_person;
 |4  | Christian  | Cup|
 
 (4 rows, 12 ms)
-```
+
 
 ```SQL
 sql> select * from t_geek;
-
+```
 
 |FAV_PROG_LANG | ID|
 |Java          | 2|
@@ -431,7 +429,7 @@ sql> select * from t_geek;
 |Java          | 4|
 
 (3 rows, 7 ms)
-```
+
 
 As expected the data is distributed over the two tables. The base table T_PERSON contains all the common attributes whereas the tableT_GEEK only contains rows for each geek. Each row references a person by the value of the column ID.
 

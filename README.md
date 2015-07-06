@@ -27,6 +27,7 @@ En nuestra aplicación de ejemplo no tenemos contenedor JEE por lo que tenemos q
   
 
   2. En persistence.xml se informa al proveedor de JPA sobre la base de datos que queremos utilizar. Esto se hace mediante la especificación del controlador JDBC que Hibernate debe utilizar. Como queremos usar la base de datos [H2](www.h2database.com), la propiedad **connection.driver_class** se establece en el valor org.h2.Driver.
+ 
   3.  Tenemos que decirle a Hibernate el dialecto JDBC que debe utilizar. Como Hibernate proporciona una implementación de dialecto dedicado para H2, elegimos éste con la propiedad **hibernate.dialect**. Con este dialecto de Hibernate es capaz de crear las sentencias SQL apropiados para la base de datos de H2.
 
 
@@ -35,9 +36,9 @@ Por último, pero no menos importante ofrecemos tres opciones que vienen muy út
 La segunda opción es **hibernate.show_sql** que se le dice a Hibernate para que imprima cada declaración SQL que se emite a la base de datos en la línea de comandos. Con esta opción habilitada podemos rastrear fácilmente todas las declaraciones y echar un vistazo si todo funciona como se esperaba. Y finalmente le decimos a Hibernate que imprima de una manera agradable la salida SQL para una mejor legibilidad estableciendo la  propiedad hibernate.format_sql en true.
 
 
- 4. Returning to code...
+ 4. REgresando al la tecla...
  
-Después de haber obtenido una instancia de la EntityManagerFactory y de ella una instancia de EntityManager podemos utilizarlos en el método **persistPerson** para salvar algunos datos en la base de datos. Ten en cuenta que después de lo que hemos hecho nuestro trabajo tenemos que cerrar tanto el EntityManager así como la EntityManagerFactory.
+Después de haber obtenido una instancia de la **EntityManagerFactory** y de ella una instancia de EntityManager podemos utilizarlos en el método **persistPerson** para salvar algunos datos en la base de datos. Ten en cuenta que después de lo que hemos hecho nuestro trabajo tenemos que cerrar tanto el EntityManager así como la EntityManagerFactory.
    + 4.1) Transacciones
 
 El EntityManager representa una unidad de persistencia y por lo tanto vamos a necesitar en la aplicacion **RESOURCE_LOCAL** sólo una instancia del EntityManager. Una unidad de persistencia es una memoria caché para las entidades que representan partes del estado almacenados en la base de datos, así como una conexión a la base de datos. Con el fin de almacenar datos en la base de datos, por lo tanto tenemos que pasarlo al EntityManager y con ello a la caché subyacente. En caso de que quiera crear una nueva fila en la base de datos, esto se hace invocando el método persist () en el EntityManager como se demuestra en el siguiente código:
@@ -64,14 +65,12 @@ El EntityManager representa una unidad de persistencia y por lo tanto vamos a ne
  
  Pero antes de que podamos llamar a **persist()** tenemos que abrir una nueva transacción llamando **transaction.begin()** en un nuevo objeto de transacciones que hemos recuperado del EntityManager. Si omitimos este llamado, Hibernate podría lanzar una **IllegalStateException** que nos dice que nos hemos olvidado de ejecutar el persisten() dentro de una transacción:
 
-Después de llamar a persistir () tenemos que confirmar (*commit*) la transacción, es decir, enviar los datos a la base de datos y almacenarla allí. En caso de que sea lanzada una excepción dentro del bloque try, tenemos que deshacer (*Rollback*) la transacción hemos comenzado antes. Pero como sólo podemos deshacer transacciones activas, tenemos que comprobar antes si la transacción actual ya está en marcha, ya que puede ocurrir que la excepción se produce dentro de la convocatoria transaction.begin ().
-
-After calling persist() we have to commit the transaction, i.e. send the data to the database and store it there. In case an exception is thrown within the try block, we have to rollback the transaction we have begun before. But as we can only rollback active transactions, we have to check before if the current transaction is already running, as it may happen that the exception is thrown within the transaction.begin() call.
+Después de llamar a persistir () tenemos que confirmar (*commit*) la transacción, es decir, enviar los datos a la base de datos y almacenarla allí. En caso de que sea lanzada una excepción dentro del bloque try, tenemos que deshacer (*Rollback*) la transacción hemos comenzado antes. Pero como sólo podemos deshacer transacciones activas, tenemos que comprobar antes si la transacción actual ya está en marcha, ya que puede ocurrir que la excepción se produce dentro de la convocatoria **transaction.begin ()**.
 
 
-<h3> 4.2) Tables</h3>
+   5. Tables
 
-<p>The class Person is mapped to the database table T_PERSON by adding the annotation @Entity:</p>
+La clase Person es mapeada para a la tabla T_PERSON agregando la anotacion @Entity:
 
 ```java
 
@@ -106,19 +105,20 @@ public class Person {
 	}
 ```
  	
- 	
-<p>On the other hand you can specify more information for each column by using the other attributes that the @Column annotation provides:</p>
+Por otro lado se puede especificar más información para cada columna usando los otros atributos que la anotación @Column ofrece:
 
 ```java
 @Column(name = "FIRST_NAME", length = 100, nullable = false, unique = false)
 ```
 
-<p>Trying to insert null as first name into this table would provoke a constraint violation on the database and cause the current transaction to roll back.</p>
 
-<p>The two annotations @Id and @GeneratedValue tell JPA that this value is the primary key for this table and that it should be generated automatically.</p> 	
+Intentar insertar nulo en "FIRST_NAME" en esta tabla provocaría una violación de constraint en la base de datos y hacer que la transacción actual haga un rollback.
+
+Las dos anotaciones @Id y @GeneratedValue dicen a JPA que este valor es la clave principal de esta tabla y que debe ser generado de forma automática
 
 
-<p>In the example code above we have added the JPA annotations to the getter methods for each field that should be mapped to a database column. Another way would be to annotate the field directly instead of the getter method:</p>
+En el código de ejemplo anterior, hemos añadido las anotaciones JPA a los métodos getter para cada campo que se debe asignar a una columna de base de datos. Otra forma sería anotando el campo directamente en lugar de su método getter.
+
 
 ```java
 @Entity
@@ -133,13 +133,11 @@ public class Person {
     private String lastName;
     ...
 ```
+
+Las dos formas son más o menos iguales, la única diferencia que tienen juega un papel cuando se desea anular anotaciones para los campos en subclases. Como veremos en el curso ulterior de este tutorial, es posible extender una entidad existente con el fin de heredar sus campos. Cuando ponemos las anotaciones JPA sobre el terreno, no podemos ignorar que lo que podamos reemplazando el método getter correspondiente.
+
+Uno también tiene que prestar atención para guardar el camino para anotar entidades del mismo para jerarquía de una entidad. se puede mezclar la anotación de los campos y métodos dentro de un proyecto JPA, pero dentro de una entidad y todas sus subclases se debe ser consistente. Si tiene que cambiar la forma de anotación dentro de una jerarquía subclase, puede utilizar el acceso de anotaciones JPA para especificar que una determinada subclase utiliza de una manera diferente para anotar campos y métodos:
     
-<p>The two ways are more or less equal, the only difference they have plays a role when you want to override annotations for fields in subclasses. As we will see in the further course of this tutorial, it is possible to extend an existing entity in order to inherit its fields. When we place the JPA annotations at the field level, we cannot override them as we can by overriding the corresponding getter method.
-
-
-<br/>
-One also has to pay attention to keep the way to annotate entities the same for one entity hierarchy. You can mix annotation of fields and methods within one JPA project, but within one entity and all its subclasses is must be consistent. If you need to change the way of annotatio within a subclass hierarchy, you can use the JPA annotation Access to specify that a certain subclass uses a different way to annotate fields and methods:</p>
-
 
 ```java
 @Entity
@@ -150,23 +148,23 @@ public class Geek extends Person {
 ...
 ```
 
-<p>
-The code snippet above tells JPA that this class is going to use annotations on the method level, whereas the superclass may have used annotations on field level.</p>
 
-<br/>
+The code snippet above tells JPA that this class is going to use annotations on the method level, whereas the superclass may have used annotations on field level.
+
+
 When we run the code above, Hibernate will issue the following queries to our local H2 database:
-<br/><br/>
-<code>
+
+```SQL
 Hibernate: drop table T_PERSON if exists
 
 Hibernate: create table T_PERSON (id bigint generated by default as identity, FIRST_NAME varchar(255), LAST_NAME varchar(255), primary key (id))
 
 Hibernate: insert into T_PERSON (id, FIRST_NAME, LAST_NAME) values (null, ?, ?)
-</code>
+```
 
-<p>As we can see, Hibernate first drops the table T_PERSON if it exists and re-creates it afterwards. If creates the table with two columns of the type varchar(255) (FIRST_NAME, LAST_NAME) and one column named id of type bigint. The latter column is defined as primary key and its values are automatically generated by the database when we insert a new value.
-<br/>
-We can check that everything is correct by using the Shell that ships with H2. In order to use this Shell we just need the jar archive h2-1.3.176.jar:</p>
+As we can see, Hibernate first drops the table T_PERSON if it exists and re-creates it afterwards. If creates the table with two columns of the type varchar(255) (FIRST_NAME, LAST_NAME) and one column named id of type bigint. The latter column is defined as primary key and its values are automatically generated by the database when we insert a new value.
+
+We can check that everything is correct by using the Shell that ships with H2. In order to use this Shell we just need the jar archive h2-1.3.176.jar:
 
 
 >java -cp h2-1.3.176.jar org.h2.tools.Shell -url jdbc:h2:~/jpa
@@ -189,7 +187,10 @@ The query result above shows us that the table T_PERSON actually contains one ro
 
 ###4. Inheritance
 
-After having accomplished the setup and this easy use case, we turn towards some more complex use cases. Let’s assume we want to store next to persons also information about geeks and about their favourite programming language. As geeks are also persons, we would model this in the Java world as subclass relation to Person:
+Después de haber llevado a cabo la configuracio0n en este caso de uso fácil, nos vamos ahora a considerar casos de uso más complejos. 
+
+Supongamos que queremos almacenar junto a personas también información sobre los aficiones-geek y de su lenguaje de programación favorito. Como los *geeks* también son personas, nos modelamos esto en el mundo Java como relación subclase de persona:
+
 
 ```java
 @Entity
@@ -217,6 +218,6 @@ public class Geek extends Person {
 	}
 ```
 
-<p>Adding the annotations @Entity and @Table to the class lets Hibernate create the new table T_GEEK:</p>
+Agregando las anotaciones @Entity y @Table a la clase le deja a Hibernate crear la nueva tabla T_GEEK:
 
 

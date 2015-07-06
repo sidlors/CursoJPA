@@ -1,4 +1,4 @@
-# jpa-guide
+# GUIA JPA
 
 El API de Persistence Java (JPA) es una especificación independiente de proveedor  para el mapeo de objetos Java a las tablas de bases de datos relacionales. Implementaciones de esta especificación permite a los desarrolladores de aplicaciones abstraer del producto de base de datos específica con la que están trabajando y les permiten implementar operaciones CRUD (crear, leer, actualizar y eliminar) las operaciones de tal manera que el mismo código funciona en diferentes productos de base de datos. Estos marcos no sólo manejan el código que interactúa con la base de datos (el código JDBC), sino también  mapear los tipos de estructuras de datos utilizadas por la aplicación.
 
@@ -18,14 +18,92 @@ En este tutorial vamos a través de diferentes aspectos del framework y desarrol
 * H2 como base relacional version 1.3.176
 
 
-### 0)Project setup
+###Project setup
 
 Como primer paso vamos a crear un proyecto simple maven desde linea de comandos:
 
 
 >mvn archetype:create -DgroupId=com.javacodegeeks.ultimate -DartifactId=jpa
 
+```
+01|-- src
+02|   |-- main
+03|   |   `-- java
+04|   |       `-- com
+05|   |           `-- javacodegeeks
+06|   |                `-- ultimate
+07|   `-- test
+08|   |   `-- java
+09|   |       `-- com
+10|   |           `-- javacodegeeks
+11|   |                `-- ultimate
+12`-- pom.xml
+```
 
+The libraries our implementation depends on are added to the dependencies section of the pom.xml file in the following way:
+```xml
+<properties>
+    <jee.version>7.0</jee.version>
+    <h2.version>1.3.176</h2.version>
+    <hibernate.version>4.3.8.Final</hibernate.version>
+</properties>
+<dependencies>
+    <dependency>
+        <groupId>javax</groupId>
+        <artifactId>javaee-api</artifactId>
+        <version>${jee.version}</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>${h2.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-entitymanager</artifactId>
+        <version>${hibernate.version}</version>
+    </dependency>
+</dependencies>
+```
+
+Para tener una mejor visión de conjunto de las versiones separadas, definimos cada versión como una propiedad Maven y referencia más adelante en la sección de dependencias.
+
+3.1. EntityManager and Persistence Unit
+
+Ahora empezamos a implementar nuestra primera funcionalidad JPA. Vamos a empezar con una clase simple que proporciona un método run() que se invoca en el método principal de la aplicación:
+
+```java
+public class Main {
+    private static final Logger LOGGER = Logger.getLogger("JPA");
+    public static void main(String[] args) {
+        Main main = new Main();
+        main.run();
+    }
+
+
+    public void run() {
+        EntityManagerFactory factory = null;
+        EntityManager entityManager = null;
+        try {
+            factory = Persistence.createEntityManagerFactory("PersistenceUnit");
+            entityManager = factory.createEntityManager();
+            persistPerson(entityManager);
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+            e.printStackTrace();
+        } finally {
+            if (entityManager != null) {
+                entityManager.close();
+            }
+            if (factory != null) {
+                factory.close();
+            }
+        }
+    }
+    ...
+
+```
 
 ###1. Casi toda la interacción con JPA se hace a través del EntityManager. Para obtener una instancia de un EntityManager, tenemos que crear una instancia de la EntityManagerFactory. Normalmente sólo necesitamos una EntityManagerFactory por  "unidad de persistencia" por aplicación. Una unidad de persistencia es un conjunto de clases de la JPA que se gestiona junto con la configuración de base de datos en un archivo llamado persistence.xml
 
@@ -99,7 +177,6 @@ Después de llamar a persistir () tenemos que confirmar (*commit*) la transacci�
 La clase Person es mapeada para a la tabla T_PERSON agregando la anotacion @Entity:
 
 ```java
-
 @Entity
 @Table(name = "T_PERSON")
 public class Person {
@@ -164,7 +241,6 @@ Las dos formas son más o menos iguales, la única diferencia que tienen juega u
 
 Uno también tiene que prestar atención para guardar el camino para anotar entidades del mismo para jerarquía de una entidad. se puede mezclar la anotación de los campos y métodos dentro de un proyecto JPA, pero dentro de una entidad y todas sus subclases se debe ser consistente. Si tiene que cambiar la forma de anotación dentro de una jerarquía subclase, puede utilizar el acceso de anotaciones JPA para especificar que una determinada subclase utiliza de una manera diferente para anotar campos y métodos:
     
-
 ```java
 @Entity
 @Table(name = "T_GEEK")
@@ -175,10 +251,8 @@ public class Geek extends Person {
 ```
 
 
-The code snippet above tells JPA that this class is going to use annotations on the method level, whereas the superclass may have used annotations on field level.
+El fragmento de código anterior le dice a JPA que esta clase va a utilizar las anotaciones en el nivel de método, mientras que la superclase puede tener anotaciones a nivel campo.
 
-
-When we run the code above, Hibernate will issue the following queries to our local H2 database:
 
 ```SQL
 Hibernate: drop table T_PERSON if exists
@@ -186,16 +260,14 @@ Hibernate: drop table T_PERSON if exists
 Hibernate: create table T_PERSON (id bigint generated by default as identity, FIRST_NAME varchar(255), LAST_NAME varchar(255), primary key (id))
 
 Hibernate: insert into T_PERSON (id, FIRST_NAME, LAST_NAME) values (null, ?, ?)
+
 ```
 
-As we can see, Hibernate first drops the table T_PERSON if it exists and re-creates it afterwards. If creates the table with two columns of the type varchar(255) (FIRST_NAME, LAST_NAME) and one column named id of type bigint. The latter column is defined as primary key and its values are automatically generated by the database when we insert a new value.
+Como podemos ver, Hibernate *Dropea* la tabla T_PERSON  si existe y vuelve a crearla después. Se crea la tabla con dos columnas de tipo varchar (255) (FIRST_NAME, LAST_NAME) y una columna llamada Identificación de tipo *big int*. La última columna se define como clave principal y sus valores son generadas automáticamente por la base de datos cuando insertamos un nuevo valor.
 
-We can check that everything is correct by using the Shell that ships with H2. In order to use this Shell we just need the jar archive h2-1.3.176.jar:
-
+Podemos comprobar que todo es correcto con el Shell que se incluye con H2. Para utilizar esta Shell sólo tenemos la h2-1.3.176.jar archivo jar:
 
 >java -cp h2-1.3.176.jar org.h2.tools.Shell -url jdbc:h2:~/jpa
-
-
 
 ```sql
 
@@ -211,7 +283,7 @@ ID | FIRST_NAME | LAST_NAME
 El resultado del query anterior muestra que la tabla T_PERSON realmente contiene un registro con id 1 y con valores  en first name y lastname
 
 
-###4. Inheritance
+###4. Herencia
 
 Después de haber llevado a cabo la configuracio0n en este caso de uso fácil, nos vamos ahora a considerar casos de uso más complejos. 
 

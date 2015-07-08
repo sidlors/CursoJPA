@@ -146,7 +146,7 @@ Por último, pero no menos importante ofrecemos tres opciones que vienen muy út
 La segunda opción es **hibernate.show_sql** que se le dice a Hibernate para que imprima cada declaración SQL que se emite a la base de datos en la línea de comandos. Con esta opción habilitada podemos rastrear fácilmente todas las declaraciones y echar un vistazo si todo funciona como se esperaba. Y finalmente le decimos a Hibernate que imprima de una manera agradable la salida SQL para una mejor legibilidad estableciendo la  propiedad hibernate.format_sql en true.
 
 
- ##3. Transacciones
+##3. Transacciones
  
 Después de haber obtenido una instancia de la **EntityManagerFactory** y de ella una instancia de EntityManager podemos utilizarlos en el método **persistPerson** para salvar algunos datos en la base de datos. Ten en cuenta que después de lo que hemos hecho nuestro trabajo tenemos que cerrar tanto el EntityManager así como la EntityManagerFactory.
 

@@ -105,7 +105,7 @@ public class Main {
 		transaction.commit();
 	}
 
-	private void persistPerson(EntityManager entityManager) {
+	public void persistPerson(EntityManager entityManager) {
 		EntityTransaction transaction = entityManager.getTransaction();
 		try {
 			transaction.begin();
@@ -126,7 +126,7 @@ public class Main {
 		}
 	}
 
-	private void persistGeek(EntityManager entityManager) {
+	public void persistGeek(EntityManager entityManager) {
 		EntityTransaction transaction = entityManager.getTransaction();
 		transaction.begin();
 		Geek geek = new Geek();
@@ -147,7 +147,7 @@ public class Main {
 		transaction.commit();
 	}
 
-	private void loadPersons(EntityManager entityManager) {
+	public List<Person> loadPersons(EntityManager entityManager) {
 		entityManager.clear();
 		TypedQuery<Person> query = entityManager.createQuery("from Person p left join fetch p.phones", Person.class);
 		List<Person> resultList = query.getResultList();
@@ -168,5 +168,7 @@ public class Main {
 			}
 			LOGGER.info(sb.toString());
 		}
+		
+		return resultList;
 	}
 }

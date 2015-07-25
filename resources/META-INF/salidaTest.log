@@ -1,0 +1,426 @@
+2015-02-22 19:17:35 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:17:36 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:17:36 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:17:36 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:17:36 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-02-22 19:17:36 WARN  DriverManagerConnectionProviderImpl:102 - HHH000148: No JDBC Driver class was specified by property hibernate.connection.driver_class
+2015-02-22 19:17:36 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2015-02-22 19:17:36 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2015-02-22 19:17:36 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [null] at URL [jdbc:h2:~/jpa;]
+2015-02-22 19:17:36 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:17:37 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:17:37 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:17:37 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:17:37 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:17:37 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:17:37 ERROR TransactionsTest:53 - 
+2015-02-22 19:18:31 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:18:31 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:18:31 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:18:31 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:18:32 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-02-22 19:18:32 WARN  DriverManagerConnectionProviderImpl:102 - HHH000148: No JDBC Driver class was specified by property hibernate.connection.driver_class
+2015-02-22 19:18:32 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2015-02-22 19:18:32 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2015-02-22 19:18:32 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [null] at URL [jdbc:h2:~/jpa;]
+2015-02-22 19:18:32 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:18:32 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:18:32 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:18:32 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:18:33 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:18:33 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:18:33 ERROR TransactionsTest:53 - 
+2015-02-22 19:19:19 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:19:19 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:19:19 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:19:19 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:19:20 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-02-22 19:19:20 WARN  DriverManagerConnectionProviderImpl:102 - HHH000148: No JDBC Driver class was specified by property hibernate.connection.driver_class
+2015-02-22 19:19:20 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2015-02-22 19:19:20 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2015-02-22 19:19:20 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [null] at URL [jdbc:h2:~/jpa;]
+2015-02-22 19:19:20 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:19:20 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:19:21 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:19:21 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:19:21 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:19:21 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:19:21 ERROR TransactionsTest:53 - 
+2015-02-22 19:21:37 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:21:37 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:21:37 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:21:37 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:21:38 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-02-22 19:21:38 WARN  DriverManagerConnectionProviderImpl:102 - HHH000148: No JDBC Driver class was specified by property hibernate.connection.driver_class
+2015-02-22 19:21:38 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2015-02-22 19:21:38 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2015-02-22 19:21:38 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [null] at URL [jdbc:h2:~/jpa;]
+2015-02-22 19:21:38 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:21:39 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:21:39 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:21:39 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:21:39 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:21:39 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:21:39 ERROR TransactionsTest:53 - 
+2015-02-22 19:22:09 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:22:09 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:22:09 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:22:09 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:22:10 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-02-22 19:22:10 WARN  DriverManagerConnectionProviderImpl:102 - HHH000148: No JDBC Driver class was specified by property hibernate.connection.driver_class
+2015-02-22 19:22:10 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2015-02-22 19:22:10 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2015-02-22 19:22:10 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [null] at URL [jdbc:h2:~/jpa;]
+2015-02-22 19:22:10 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:22:11 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:22:11 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:22:11 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:22:11 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:22:11 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:22:11 ERROR TransactionsTest:53 - 
+2015-02-22 19:24:24 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:24:24 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:24:24 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:24:24 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:24:24 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-02-22 19:24:24 WARN  DriverManagerConnectionProviderImpl:102 - HHH000148: No JDBC Driver class was specified by property hibernate.connection.driver_class
+2015-02-22 19:24:24 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2015-02-22 19:24:24 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2015-02-22 19:24:24 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [null] at URL [jdbc:h2:~/jpa;]
+2015-02-22 19:24:24 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:24:25 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:24:25 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:24:25 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:24:25 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:24:25 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:24:26 ERROR TransactionsTest:54 - 
+2015-02-22 19:32:39 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:32:39 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:32:39 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:32:39 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:32:40 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-02-22 19:32:40 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2015-02-22 19:32:40 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2015-02-22 19:32:40 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.h2.Driver] at URL [jdbc:h2:~/jpa;]
+2015-02-22 19:32:40 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:32:40 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:32:40 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:32:40 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:32:41 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:32:41 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:32:41 ERROR TransactionsTest:54 - 
+2015-02-22 19:33:30 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:33:30 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:33:30 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:33:30 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:33:31 INFO  DriverManagerConnectionProviderImpl:98 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-02-22 19:33:31 INFO  DriverManagerConnectionProviderImpl:134 - HHH000115: Hibernate connection pool size: 20
+2015-02-22 19:33:31 INFO  DriverManagerConnectionProviderImpl:137 - HHH000006: Autocommit mode: true
+2015-02-22 19:33:31 INFO  DriverManagerConnectionProviderImpl:151 - HHH000401: using driver [org.h2.Driver] at URL [jdbc:h2:~/jpa;]
+2015-02-22 19:33:31 INFO  DriverManagerConnectionProviderImpl:156 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:33:32 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:33:32 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:33:32 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:33:32 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:33:32 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table T_BILLING_PERIOD drop constraint FK_9eca23a6361f47dab395b737498
+2015-02-22 19:33:32 ERROR SchemaExport:426 - Constraint "FK_9ECA23A6361F47DAB395B737498" no encontrado
+Constraint "FK_9ECA23A6361F47DAB395B737498" not found; SQL statement:
+
+    alter table T_BILLING_PERIOD 
+        drop constraint FK_9eca23a6361f47dab395b737498 [90057-176]
+2015-02-22 19:33:32 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table T_GEEK drop constraint FK_fbc32f51792c4040ba9af07cd47
+2015-02-22 19:33:32 ERROR SchemaExport:426 - Constraint "FK_FBC32F51792C4040BA9AF07CD47" no encontrado
+Constraint "FK_FBC32F51792C4040BA9AF07CD47" not found; SQL statement:
+
+    alter table T_GEEK 
+        drop constraint FK_fbc32f51792c4040ba9af07cd47 [90057-176]
+2015-02-22 19:33:32 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table T_GEEK_PROJECT drop constraint FK_761a3e61abb640488c3c9d19093
+2015-02-22 19:33:32 ERROR SchemaExport:426 - Constraint "FK_761A3E61ABB640488C3C9D19093" no encontrado
+Constraint "FK_761A3E61ABB640488C3C9D19093" not found; SQL statement:
+
+    alter table T_GEEK_PROJECT 
+        drop constraint FK_761a3e61abb640488c3c9d19093 [90057-176]
+2015-02-22 19:33:32 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table T_GEEK_PROJECT drop constraint FK_11283520da53439989182fa3dd0
+2015-02-22 19:33:32 ERROR SchemaExport:426 - Constraint "FK_11283520DA53439989182FA3DD0" no encontrado
+Constraint "FK_11283520DA53439989182FA3DD0" not found; SQL statement:
+
+    alter table T_GEEK_PROJECT 
+        drop constraint FK_11283520da53439989182fa3dd0 [90057-176]
+2015-02-22 19:33:32 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table T_PERSON drop constraint FK_636bb11a221a4e729f878075448
+2015-02-22 19:33:32 ERROR SchemaExport:426 - Constraint "FK_636BB11A221A4E729F878075448" no encontrado
+Constraint "FK_636BB11A221A4E729F878075448" not found; SQL statement:
+
+    alter table T_PERSON 
+        drop constraint FK_636bb11a221a4e729f878075448 [90057-176]
+2015-02-22 19:33:32 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table T_PHONE drop constraint FK_e228a52430674090a5888c62af1
+2015-02-22 19:33:32 ERROR SchemaExport:426 - Constraint "FK_E228A52430674090A5888C62AF1" no encontrado
+Constraint "FK_E228A52430674090A5888C62AF1" not found; SQL statement:
+
+    alter table T_PHONE 
+        drop constraint FK_e228a52430674090a5888c62af1 [90057-176]
+2015-02-22 19:33:32 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:33:33 INFO  DriverManagerConnectionProviderImpl:160 - HHH000030: Cleaning up connection pool [jdbc:h2:~/jpa;]
+2015-02-22 19:36:18 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:36:18 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:36:18 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:36:18 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:36:18 INFO  ConnectionProviderInitiator:188 - HHH000130: Instantiating explicit connection provider: org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
+2015-02-22 19:36:18 INFO  C3P0ConnectionProvider:128 - HHH010002: C3P0 using driver: org.h2.Driver at URL: jdbc:h2:~/jpa;
+2015-02-22 19:36:18 INFO  C3P0ConnectionProvider:129 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:36:18 INFO  C3P0ConnectionProvider:132 - HHH000006: Autocommit mode: true
+2015-02-22 19:36:18 INFO  MLog:80 - MLog clients using log4j logging.
+2015-02-22 19:36:19 INFO  C3P0Registry:204 - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2015-02-22 19:36:19 INFO  AbstractPoolBackedDataSource:462 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@18c284d3 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@213a4836 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgecjn971dyqvzz1taf7sx|786db724, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@decfab9d [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dyqvzz1taf7sx|3c7976c1, jdbcUrl -> jdbc:h2:~/jpa;, properties -> {autocommit=true, release_mode=auto} ], preferredTestQuery -> null, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dyqvzz1taf7sx|1a7244ca, numHelperThreads -> 3 ]
+2015-02-22 19:36:20 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:36:20 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-02-22 19:36:20 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:36:20 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:36:20 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:36:20 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:36:20 ERROR TransactionsTest:54 - 
+2015-02-22 19:37:29 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:37:29 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:37:29 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:37:29 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:37:31 INFO  ConnectionProviderInitiator:188 - HHH000130: Instantiating explicit connection provider: org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
+2015-02-22 19:37:31 INFO  C3P0ConnectionProvider:128 - HHH010002: C3P0 using driver: org.h2.Driver at URL: jdbc:h2:~/jpa;
+2015-02-22 19:37:31 INFO  C3P0ConnectionProvider:129 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:37:31 INFO  C3P0ConnectionProvider:132 - HHH000006: Autocommit mode: true
+2015-02-22 19:37:31 INFO  MLog:80 - MLog clients using log4j logging.
+2015-02-22 19:37:31 INFO  C3P0Registry:204 - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2015-02-22 19:37:31 INFO  AbstractPoolBackedDataSource:462 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@99851d13 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@b27e23fb [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgecjn971dysfms1luc1di|26b31b77, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@2bdaa2ea [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dysfms1luc1di|3bf8bd0d, jdbcUrl -> jdbc:h2:~/jpa;, properties -> {autocommit=true, release_mode=auto} ], preferredTestQuery -> null, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dysfms1luc1di|52639bf1, numHelperThreads -> 3 ]
+2015-02-22 19:37:31 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:37:32 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-02-22 19:37:32 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:37:32 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:37:32 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:37:32 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table T_BILLING_PERIOD drop constraint FK_79779e0749c14a12985d2b4eb0d
+2015-02-22 19:37:32 ERROR SchemaExport:426 - Constraint "FK_79779E0749C14A12985D2B4EB0D" no encontrado
+Constraint "FK_79779E0749C14A12985D2B4EB0D" not found; SQL statement:
+
+    alter table T_BILLING_PERIOD 
+        drop constraint FK_79779e0749c14a12985d2b4eb0d [90057-176]
+2015-02-22 19:37:32 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table T_GEEK drop constraint FK_c9ed04e297794cee9283eea12a6
+2015-02-22 19:37:32 ERROR SchemaExport:426 - Constraint "FK_C9ED04E297794CEE9283EEA12A6" no encontrado
+Constraint "FK_C9ED04E297794CEE9283EEA12A6" not found; SQL statement:
+
+    alter table T_GEEK 
+        drop constraint FK_c9ed04e297794cee9283eea12a6 [90057-176]
+2015-02-22 19:37:32 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table T_GEEK_PROJECT drop constraint FK_38151ce7513e4b8893953518157
+2015-02-22 19:37:32 ERROR SchemaExport:426 - Constraint "FK_38151CE7513E4B8893953518157" no encontrado
+Constraint "FK_38151CE7513E4B8893953518157" not found; SQL statement:
+
+    alter table T_GEEK_PROJECT 
+        drop constraint FK_38151ce7513e4b8893953518157 [90057-176]
+2015-02-22 19:37:32 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table T_GEEK_PROJECT drop constraint FK_a7d01e942f50473eb9f9f44c2a7
+2015-02-22 19:37:32 ERROR SchemaExport:426 - Constraint "FK_A7D01E942F50473EB9F9F44C2A7" no encontrado
+Constraint "FK_A7D01E942F50473EB9F9F44C2A7" not found; SQL statement:
+
+    alter table T_GEEK_PROJECT 
+        drop constraint FK_a7d01e942f50473eb9f9f44c2a7 [90057-176]
+2015-02-22 19:37:32 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table T_PERSON drop constraint FK_d6397e7f68f544b489c8546b3c3
+2015-02-22 19:37:32 ERROR SchemaExport:426 - Constraint "FK_D6397E7F68F544B489C8546B3C3" no encontrado
+Constraint "FK_D6397E7F68F544B489C8546B3C3" not found; SQL statement:
+
+    alter table T_PERSON 
+        drop constraint FK_d6397e7f68f544b489c8546b3c3 [90057-176]
+2015-02-22 19:37:32 ERROR SchemaExport:425 - HHH000389: Unsuccessful: alter table T_PHONE drop constraint FK_d17f9acbbfad484f9b5649cd97f
+2015-02-22 19:37:32 ERROR SchemaExport:426 - Constraint "FK_D17F9ACBBFAD484F9B5649CD97F" no encontrado
+Constraint "FK_D17F9ACBBFAD484F9B5649CD97F" not found; SQL statement:
+
+    alter table T_PHONE 
+        drop constraint FK_d17f9acbbfad484f9b5649cd97f [90057-176]
+2015-02-22 19:37:32 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:38:51 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:38:52 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:38:52 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:38:52 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:38:52 INFO  ConnectionProviderInitiator:188 - HHH000130: Instantiating explicit connection provider: org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
+2015-02-22 19:38:52 INFO  C3P0ConnectionProvider:128 - HHH010002: C3P0 using driver: org.h2.Driver at URL: jdbc:h2:~/jpa;
+2015-02-22 19:38:52 INFO  C3P0ConnectionProvider:129 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:38:52 INFO  C3P0ConnectionProvider:132 - HHH000006: Autocommit mode: true
+2015-02-22 19:38:52 INFO  MLog:80 - MLog clients using log4j logging.
+2015-02-22 19:38:53 INFO  C3P0Registry:204 - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2015-02-22 19:38:53 INFO  AbstractPoolBackedDataSource:462 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@8921572e [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@f721e21 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgecjn971dyu6ludchryf|4cb533b8, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@2454bab8 [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dyu6ludchryf|68a0864f, jdbcUrl -> jdbc:h2:~/jpa;, properties -> {autocommit=true, release_mode=auto} ], preferredTestQuery -> null, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dyu6ludchryf|3d7dc1cb, numHelperThreads -> 3 ]
+2015-02-22 19:38:53 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:38:53 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-02-22 19:38:53 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:38:53 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:38:54 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:38:54 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:38:54 ERROR TransactionsTest:54 - 
+2015-02-22 19:39:18 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:39:18 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:39:18 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:39:18 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:39:18 INFO  ConnectionProviderInitiator:188 - HHH000130: Instantiating explicit connection provider: org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
+2015-02-22 19:39:18 INFO  C3P0ConnectionProvider:128 - HHH010002: C3P0 using driver: org.h2.Driver at URL: jdbc:h2:~/jpa;
+2015-02-22 19:39:18 INFO  C3P0ConnectionProvider:129 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:39:18 INFO  C3P0ConnectionProvider:132 - HHH000006: Autocommit mode: true
+2015-02-22 19:39:18 INFO  MLog:80 - MLog clients using log4j logging.
+2015-02-22 19:39:19 INFO  C3P0Registry:204 - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2015-02-22 19:39:19 INFO  AbstractPoolBackedDataSource:462 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@7a79a678 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@ca6d6b [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgecjn971dyuqrppewn1u|4cb533b8, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@15ad0a02 [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dyuqrppewn1u|68a0864f, jdbcUrl -> jdbc:h2:~/jpa;, properties -> {autocommit=true, release_mode=auto} ], preferredTestQuery -> null, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dyuqrppewn1u|3d7dc1cb, numHelperThreads -> 3 ]
+2015-02-22 19:39:19 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:39:19 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-02-22 19:39:19 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:39:19 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:39:20 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:39:20 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:39:31 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:39:32 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:39:32 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:39:32 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:39:32 INFO  ConnectionProviderInitiator:188 - HHH000130: Instantiating explicit connection provider: org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
+2015-02-22 19:39:32 INFO  C3P0ConnectionProvider:128 - HHH010002: C3P0 using driver: org.h2.Driver at URL: jdbc:h2:~/jpa;
+2015-02-22 19:39:32 INFO  C3P0ConnectionProvider:129 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:39:32 INFO  C3P0ConnectionProvider:132 - HHH000006: Autocommit mode: true
+2015-02-22 19:39:32 INFO  MLog:80 - MLog clients using log4j logging.
+2015-02-22 19:39:32 INFO  C3P0Registry:204 - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2015-02-22 19:39:33 INFO  AbstractPoolBackedDataSource:462 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@40eb33f2 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@c73bfae5 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgecjn971dyv1f6tpcnoa|4cb533b8, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@dc1e977c [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dyv1f6tpcnoa|68a0864f, jdbcUrl -> jdbc:h2:~/jpa;, properties -> {autocommit=true, release_mode=auto} ], preferredTestQuery -> null, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dyv1f6tpcnoa|3d7dc1cb, numHelperThreads -> 3 ]
+2015-02-22 19:39:33 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:39:33 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-02-22 19:39:33 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:39:33 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:39:33 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:39:33 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:39:34 ERROR TransactionsTest:54 - 
+2015-02-22 19:40:37 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:40:37 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:40:37 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:40:37 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:40:38 INFO  ConnectionProviderInitiator:188 - HHH000130: Instantiating explicit connection provider: org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
+2015-02-22 19:40:38 INFO  C3P0ConnectionProvider:128 - HHH010002: C3P0 using driver: org.h2.Driver at URL: jdbc:h2:~/jpa;
+2015-02-22 19:40:38 INFO  C3P0ConnectionProvider:129 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:40:38 INFO  C3P0ConnectionProvider:132 - HHH000006: Autocommit mode: true
+2015-02-22 19:40:38 INFO  MLog:80 - MLog clients using log4j logging.
+2015-02-22 19:40:38 INFO  C3P0Registry:204 - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2015-02-22 19:40:38 INFO  AbstractPoolBackedDataSource:462 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@1aedd15b [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@d67126d6 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgecjn971dywg7dpvpxn0|4453d3cf, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@22f33562 [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dywg7dpvpxn0|41e8fa70, jdbcUrl -> jdbc:h2:~/jpa;, properties -> {autocommit=true, release_mode=auto} ], preferredTestQuery -> null, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dywg7dpvpxn0|46e13e7b, numHelperThreads -> 3 ]
+2015-02-22 19:40:39 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:40:39 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-02-22 19:40:39 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:40:39 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:40:39 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:40:39 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:40:40 ERROR TransactionsTest:54 - 
+2015-02-22 19:40:49 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:40:49 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:40:49 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:40:49 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:40:49 INFO  ConnectionProviderInitiator:188 - HHH000130: Instantiating explicit connection provider: org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
+2015-02-22 19:40:49 INFO  C3P0ConnectionProvider:128 - HHH010002: C3P0 using driver: org.h2.Driver at URL: jdbc:h2:~/jpa;
+2015-02-22 19:40:49 INFO  C3P0ConnectionProvider:129 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:40:49 INFO  C3P0ConnectionProvider:132 - HHH000006: Autocommit mode: true
+2015-02-22 19:40:49 INFO  MLog:80 - MLog clients using log4j logging.
+2015-02-22 19:40:50 INFO  C3P0Registry:204 - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2015-02-22 19:40:50 INFO  AbstractPoolBackedDataSource:462 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@af4a642a [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@6acdb9a5 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgecjn971dywox01jg2ukr|4453d3cf, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@b74fc831 [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dywox01jg2ukr|41e8fa70, jdbcUrl -> jdbc:h2:~/jpa;, properties -> {autocommit=true, release_mode=auto} ], preferredTestQuery -> null, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dywox01jg2ukr|46e13e7b, numHelperThreads -> 3 ]
+2015-02-22 19:40:50 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:40:50 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-02-22 19:40:50 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:40:50 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:40:51 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:40:51 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:41:18 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:41:18 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:41:18 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:41:18 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:41:19 INFO  ConnectionProviderInitiator:188 - HHH000130: Instantiating explicit connection provider: org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
+2015-02-22 19:41:19 INFO  C3P0ConnectionProvider:128 - HHH010002: C3P0 using driver: org.h2.Driver at URL: jdbc:h2:~/jpa;
+2015-02-22 19:41:19 INFO  C3P0ConnectionProvider:129 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:41:19 INFO  C3P0ConnectionProvider:132 - HHH000006: Autocommit mode: true
+2015-02-22 19:41:19 INFO  MLog:80 - MLog clients using log4j logging.
+2015-02-22 19:41:19 INFO  C3P0Registry:204 - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2015-02-22 19:41:19 INFO  AbstractPoolBackedDataSource:462 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@bad7d5a6 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@88ea7788 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgecjn971dyxbm8hzrps6|6a6014f7, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@b4b2f471 [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dyxbm8hzrps6|1e9cd8db, jdbcUrl -> jdbc:h2:~/jpa;, properties -> {autocommit=true, release_mode=auto} ], preferredTestQuery -> null, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dyxbm8hzrps6|5b5b55bc, numHelperThreads -> 3 ]
+2015-02-22 19:41:22 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:41:22 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-02-22 19:41:22 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:41:22 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:41:22 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:41:22 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:45:53 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:45:53 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:45:53 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:45:53 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:45:54 INFO  ConnectionProviderInitiator:188 - HHH000130: Instantiating explicit connection provider: org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
+2015-02-22 19:45:54 INFO  C3P0ConnectionProvider:128 - HHH010002: C3P0 using driver: org.h2.Driver at URL: jdbc:h2:~/jpa;
+2015-02-22 19:45:54 INFO  C3P0ConnectionProvider:129 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:45:54 INFO  C3P0ConnectionProvider:132 - HHH000006: Autocommit mode: true
+2015-02-22 19:45:54 INFO  MLog:80 - MLog clients using log4j logging.
+2015-02-22 19:45:54 INFO  C3P0Registry:204 - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2015-02-22 19:45:55 INFO  AbstractPoolBackedDataSource:462 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@e2c3b565 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@75df6a9d [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgecjn971dz385k1yxdrf7|6e2c03ff, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@6dceec7e [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dz385k1yxdrf7|68e4e358, jdbcUrl -> jdbc:h2:~/jpa;, properties -> {autocommit=true, release_mode=auto} ], preferredTestQuery -> null, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dz385k1yxdrf7|24d37b87, numHelperThreads -> 3 ]
+2015-02-22 19:45:57 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:45:57 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-02-22 19:45:57 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:45:57 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:45:58 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:45:58 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:46:36 ERROR TransactionsTest:54 - 
+2015-02-22 19:48:13 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:48:13 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:48:13 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:48:13 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:48:14 INFO  ConnectionProviderInitiator:188 - HHH000130: Instantiating explicit connection provider: org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
+2015-02-22 19:48:14 INFO  C3P0ConnectionProvider:128 - HHH010002: C3P0 using driver: org.h2.Driver at URL: jdbc:h2:~/jpa;
+2015-02-22 19:48:14 INFO  C3P0ConnectionProvider:129 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:48:14 INFO  C3P0ConnectionProvider:132 - HHH000006: Autocommit mode: true
+2015-02-22 19:48:14 INFO  MLog:80 - MLog clients using log4j logging.
+2015-02-22 19:48:14 INFO  C3P0Registry:204 - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2015-02-22 19:48:14 INFO  AbstractPoolBackedDataSource:462 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@afa21316 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@e694b4e3 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgecjn971dz67x91k4jv3i|6dabbec4, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@fa61c6eb [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dz67x91k4jv3i|105585dc, jdbcUrl -> jdbc:h2:~/jpa;, properties -> {autocommit=true, release_mode=auto} ], preferredTestQuery -> null, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dz67x91k4jv3i|29949f78, numHelperThreads -> 3 ]
+2015-02-22 19:48:15 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:48:15 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-02-22 19:48:15 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:48:15 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:48:15 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:48:15 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:48:20 ERROR TransactionsTest:54 - [Ljava.lang.StackTraceElement;@ca8e2b8
+2015-02-22 19:48:50 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:48:50 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:48:50 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:48:50 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:48:51 INFO  ConnectionProviderInitiator:188 - HHH000130: Instantiating explicit connection provider: org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
+2015-02-22 19:48:51 INFO  C3P0ConnectionProvider:128 - HHH010002: C3P0 using driver: org.h2.Driver at URL: jdbc:h2:~/jpa;
+2015-02-22 19:48:51 INFO  C3P0ConnectionProvider:129 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:48:51 INFO  C3P0ConnectionProvider:132 - HHH000006: Autocommit mode: true
+2015-02-22 19:48:51 INFO  MLog:80 - MLog clients using log4j logging.
+2015-02-22 19:48:51 INFO  C3P0Registry:204 - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2015-02-22 19:48:51 INFO  AbstractPoolBackedDataSource:462 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@14373d70 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@d957f6f9 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgecjn971dz70cf191ei7v|4a009ab0, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@2e7bf286 [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dz70cf191ei7v|55e29b99, jdbcUrl -> jdbc:h2:~/jpa;, properties -> {autocommit=true, release_mode=auto} ], preferredTestQuery -> null, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dz70cf191ei7v|4959d87f, numHelperThreads -> 3 ]
+2015-02-22 19:48:52 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:48:52 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-02-22 19:48:52 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:48:52 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:48:52 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:48:52 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:49:08 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:49:08 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:49:08 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:49:08 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:49:09 INFO  ConnectionProviderInitiator:188 - HHH000130: Instantiating explicit connection provider: org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
+2015-02-22 19:49:09 INFO  C3P0ConnectionProvider:128 - HHH010002: C3P0 using driver: org.h2.Driver at URL: jdbc:h2:~/jpa;
+2015-02-22 19:49:09 INFO  C3P0ConnectionProvider:129 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:49:09 INFO  C3P0ConnectionProvider:132 - HHH000006: Autocommit mode: true
+2015-02-22 19:49:09 INFO  MLog:80 - MLog clients using log4j logging.
+2015-02-22 19:49:09 INFO  C3P0Registry:204 - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2015-02-22 19:49:10 INFO  AbstractPoolBackedDataSource:462 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@79bfa2d3 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@4401bd34 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgecjn971dz7elq14u02av|c569c60, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@14127cf0 [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dz7elq14u02av|2d1e233, jdbcUrl -> jdbc:h2:~/jpa;, properties -> {autocommit=true, release_mode=auto} ], preferredTestQuery -> null, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dz7elq14u02av|b3e15f7, numHelperThreads -> 3 ]
+2015-02-22 19:49:12 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:49:12 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-02-22 19:49:12 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:49:12 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:49:12 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:49:12 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:49:52 INFO  Version:37 - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2015-02-22 19:49:52 INFO  Version:41 - HHH000412: Hibernate Core {4.2.1.Final}
+2015-02-22 19:49:52 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2015-02-22 19:49:52 INFO  Environment:342 - HHH000021: Bytecode provider name : javassist
+2015-02-22 19:49:52 INFO  ConnectionProviderInitiator:188 - HHH000130: Instantiating explicit connection provider: org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
+2015-02-22 19:49:52 INFO  C3P0ConnectionProvider:128 - HHH010002: C3P0 using driver: org.h2.Driver at URL: jdbc:h2:~/jpa;
+2015-02-22 19:49:52 INFO  C3P0ConnectionProvider:129 - HHH000046: Connection properties: {autocommit=true, release_mode=auto}
+2015-02-22 19:49:52 INFO  C3P0ConnectionProvider:132 - HHH000006: Autocommit mode: true
+2015-02-22 19:49:52 INFO  MLog:80 - MLog clients using log4j logging.
+2015-02-22 19:49:52 INFO  C3P0Registry:204 - Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2015-02-22 19:49:53 INFO  AbstractPoolBackedDataSource:462 - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@efc2e740 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@7613ae33 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgecjn971dz8bun1ansqp6|4cb533b8, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 300, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@8af64aca [ description -> null, driverClass -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dz8bun1ansqp6|68a0864f, jdbcUrl -> jdbc:h2:~/jpa;, properties -> {autocommit=true, release_mode=auto} ], preferredTestQuery -> null, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, factoryClassLocation -> null, identityToken -> 1hgecjn971dz8bun1ansqp6|3d7dc1cb, numHelperThreads -> 3 ]
+2015-02-22 19:49:53 INFO  Dialect:128 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2015-02-22 19:49:53 INFO  LobCreatorBuilder:120 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-02-22 19:49:53 INFO  TransactionFactoryInitiator:73 - HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+2015-02-22 19:49:53 INFO  ASTQueryTranslatorFactory:48 - HHH000397: Using ASTQueryTranslatorFactory
+2015-02-22 19:49:53 INFO  SchemaExport:343 - HHH000227: Running hbm2ddl schema export
+2015-02-22 19:49:53 INFO  SchemaExport:405 - HHH000230: Schema export complete
+2015-02-22 19:49:54 ERROR TransactionsTest:54 - 
